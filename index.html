@@ -37,7 +37,7 @@
       --gold2: #B8902A;
       --sage: #7A8C6E;
       --muted: #7A7060;
-      --border: rgba(92, 74, 50, 0.15);
+      --border: rgba(92, 74, 50, .15);
       --font-display: 'Cormorant Garamond', serif;
       --font-head: 'Montserrat', sans-serif;
       --font-body: 'Poppins', sans-serif;
@@ -1302,7 +1302,7 @@
     }
 
     .mat-swatch {
-      height: 200px;
+      height: 180px;
       position: relative;
       overflow: hidden
     }
@@ -1319,7 +1319,7 @@
     }
 
     .mat-info {
-      padding: 18px 20px;
+      padding: 16px 20px 20px;
       background: var(--off)
     }
 
@@ -1328,13 +1328,83 @@
       font-size: 14px;
       font-weight: 800;
       color: var(--charcoal);
-      margin-bottom: 4px
+      margin-bottom: 2px
     }
 
     .mat-sub {
       font-size: 11.5px;
       color: var(--muted);
-      letter-spacing: .04em
+      letter-spacing: .04em;
+      margin-bottom: 10px
+    }
+
+    .mat-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border)
+    }
+
+    .mat-price {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--terra)
+    }
+
+    .mat-price span {
+      font-family: var(--font-body);
+      font-size: 10px;
+      color: var(--muted);
+      font-weight: 400;
+      display: block;
+      margin-top: -2px
+    }
+
+    .mat-order-btn {
+      background: var(--charcoal);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      font-family: var(--font-head);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      transition: background .2s var(--spring), transform .2s var(--spring)
+    }
+
+    .mat-order-btn:hover {
+      background: var(--terra);
+      transform: scale(1.05)
+    }
+
+    .mat-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(20, 18, 16, .85);
+      backdrop-filter: blur(6px);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      border: 1px solid rgba(212, 168, 83, .3);
+      line-height: 1
+    }
+
+    .mat-badge small {
+      font-family: var(--font-body);
+      font-size: 9px;
+      color: rgba(255, 255, 255, .5);
+      display: block;
+      margin-top: 1px;
+      font-weight: 400
     }
 
     /* PROCESS */
@@ -1480,9 +1550,7 @@
       line-height: 1.75
     }
 
-    /* ============================================================
-       GALLERY — CREATIVE MASONRY WITH ANIMATIONS
-    ============================================================ */
+    /* GALLERY */
     .portfolio {
       background: var(--off);
       padding: 130px 0;
@@ -1521,7 +1589,6 @@
       margin: 16px auto 0
     }
 
-    /* Filter tabs */
     .gallery-filters {
       display: flex;
       gap: 8px;
@@ -1553,20 +1620,18 @@
       background: var(--terra)
     }
 
-    /* ========== CREATIVE GALLERY LAYOUT ========== */
     .gallery-masonry {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       grid-auto-rows: 80px;
-      gap: 10px;
+      gap: 10px
     }
 
-    /* Gallery items base */
     .gal-item {
       position: relative;
       overflow: hidden;
       border-radius: 8px;
-      background: var(--light);
+      background: var(--light)
     }
 
     .gal-item img {
@@ -1574,7 +1639,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform .7s cubic-bezier(.25, .46, .45, .94), filter .5s;
+      transition: transform .7s cubic-bezier(.25, .46, .45, .94), filter .5s
     }
 
     .gal-item:hover img {
@@ -1582,7 +1647,6 @@
       filter: brightness(.75) saturate(1.2)
     }
 
-    /* Overlay */
     .gal-overlay {
       position: absolute;
       inset: 0;
@@ -1592,7 +1656,7 @@
       justify-content: flex-end;
       padding: 22px;
       opacity: 0;
-      transition: opacity .4s var(--ease);
+      transition: opacity .4s var(--ease)
     }
 
     .gal-item:hover .gal-overlay {
@@ -1608,7 +1672,7 @@
       color: var(--gold);
       margin-bottom: 5px;
       transform: translateY(10px);
-      transition: transform .35s var(--ease);
+      transition: transform .35s var(--ease)
     }
 
     .gal-title {
@@ -1618,7 +1682,7 @@
       color: var(--white);
       line-height: 1.2;
       transform: translateY(10px);
-      transition: transform .4s var(--ease);
+      transition: transform .4s var(--ease)
     }
 
     .gal-sub {
@@ -1626,7 +1690,7 @@
       color: rgba(255, 255, 255, .6);
       margin-top: 3px;
       transform: translateY(8px);
-      transition: transform .45s var(--ease);
+      transition: transform .45s var(--ease)
     }
 
     .gal-item:hover .gal-label,
@@ -1635,75 +1699,31 @@
       transform: translateY(0)
     }
 
-    /* Shimmer on hover */
-    .gal-item::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 60%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .15), transparent);
-      transform: skewX(-20deg);
-      transition: left .7s var(--ease);
-      pointer-events: none
-    }
-
-    .gal-item:hover::after {
-      left: 150%
-    }
-
-    /* Corner tag for featured items */
-    .gal-item.featured .gal-corner {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      background: var(--terra);
-      color: var(--white);
-      font-family: var(--font-head);
-      font-size: 8px;
-      font-weight: 800;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      padding: 5px 10px;
-      border-radius: 2px;
-      z-index: 3;
-    }
-
-    /* ---- LAYOUT GRID POSITIONS ---- */
-    /* Row 1: Featured large + 2 tall side */
     .gal-item:nth-child(1) {
       grid-column: 1/6;
       grid-row: 1/7
     }
 
-    /* tall left hero */
     .gal-item:nth-child(2) {
       grid-column: 6/9;
       grid-row: 1/4
     }
 
-    /* mid top */
     .gal-item:nth-child(3) {
       grid-column: 9/13;
       grid-row: 1/5
     }
 
-    /* right tall */
     .gal-item:nth-child(4) {
       grid-column: 6/9;
       grid-row: 4/7
     }
 
-    /* mid bottom */
     .gal-item:nth-child(5) {
       grid-column: 9/13;
       grid-row: 5/8
     }
 
-    /* right cont */
-
-    /* Row 2 */
     .gal-item:nth-child(6) {
       grid-column: 1/4;
       grid-row: 7/11
@@ -1719,7 +1739,6 @@
       grid-row: 7/11
     }
 
-    /* Row 3 — 3 equal */
     .gal-item:nth-child(9) {
       grid-column: 1/5;
       grid-row: 11/15
@@ -1735,7 +1754,6 @@
       grid-row: 11/15
     }
 
-    /* Row 4 — wide + narrow */
     .gal-item:nth-child(12) {
       grid-column: 1/7;
       grid-row: 15/19
@@ -1751,7 +1769,6 @@
       grid-row: 15/19
     }
 
-    /* Row 5 — 4 equal */
     .gal-item:nth-child(15) {
       grid-column: 1/4;
       grid-row: 19/23
@@ -1772,7 +1789,6 @@
       grid-row: 19/23
     }
 
-    /* Row 6 — panoramic + small */
     .gal-item:nth-child(19) {
       grid-column: 1/8;
       grid-row: 23/27
@@ -1783,11 +1799,10 @@
       grid-row: 23/27
     }
 
-    /* Reveal animation for gallery items */
     .gal-item {
       opacity: 0;
       transform: translateY(30px) scale(.97);
-      transition: opacity .7s var(--ease), transform .7s var(--ease), box-shadow .4s;
+      transition: opacity .7s var(--ease), transform .7s var(--ease), box-shadow .4s
     }
 
     .gal-item.visible {
@@ -1801,88 +1816,22 @@
       transform: translateY(-4px) scale(1.01) !important
     }
 
-    /* Staggered delays */
-    .gal-item:nth-child(1) {
-      transition-delay: .05s
+    .gal-item.featured .gal-corner {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--terra);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 2px;
+      z-index: 3
     }
 
-    .gal-item:nth-child(2) {
-      transition-delay: .1s
-    }
-
-    .gal-item:nth-child(3) {
-      transition-delay: .15s
-    }
-
-    .gal-item:nth-child(4) {
-      transition-delay: .2s
-    }
-
-    .gal-item:nth-child(5) {
-      transition-delay: .25s
-    }
-
-    .gal-item:nth-child(6) {
-      transition-delay: .1s
-    }
-
-    .gal-item:nth-child(7) {
-      transition-delay: .15s
-    }
-
-    .gal-item:nth-child(8) {
-      transition-delay: .2s
-    }
-
-    .gal-item:nth-child(9) {
-      transition-delay: .1s
-    }
-
-    .gal-item:nth-child(10) {
-      transition-delay: .15s
-    }
-
-    .gal-item:nth-child(11) {
-      transition-delay: .2s
-    }
-
-    .gal-item:nth-child(12) {
-      transition-delay: .05s
-    }
-
-    .gal-item:nth-child(13) {
-      transition-delay: .1s
-    }
-
-    .gal-item:nth-child(14) {
-      transition-delay: .15s
-    }
-
-    .gal-item:nth-child(15) {
-      transition-delay: .05s
-    }
-
-    .gal-item:nth-child(16) {
-      transition-delay: .1s
-    }
-
-    .gal-item:nth-child(17) {
-      transition-delay: .15s
-    }
-
-    .gal-item:nth-child(18) {
-      transition-delay: .2s
-    }
-
-    .gal-item:nth-child(19) {
-      transition-delay: .05s
-    }
-
-    .gal-item:nth-child(20) {
-      transition-delay: .1s
-    }
-
-    /* Gallery stats */
     .gallery-stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -1936,7 +1885,7 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity .4s;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px)
     }
 
     .lightbox.open {
@@ -2460,6 +2409,1175 @@
       text-transform: uppercase
     }
 
+    /* PAYMENT SECTION — trigger button area */
+    .payment-section {
+      padding: 130px 0;
+      background: var(--off);
+      position: relative;
+      overflow: hidden
+    }
+
+    .payment-section::before {
+      content: 'PAY';
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: 22rem;
+      font-weight: 700;
+      color: rgba(92, 74, 50, .04);
+      pointer-events: none;
+      letter-spacing: .1em;
+      line-height: 1
+    }
+
+    .payment-cta-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 60px 0
+    }
+
+    .payment-cta-inner .tag {
+      justify-content: center;
+      margin-bottom: 20px
+    }
+
+    .payment-cta-inner .sec-title {
+      margin-bottom: 20px
+    }
+
+    .payment-cta-inner p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.9;
+      max-width: 560px;
+      margin: 0 auto 40px
+    }
+
+    .open-pay-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--terra);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 20px 48px;
+      border-radius: 6px;
+      border: none;
+      transition: background .3s, transform .2s var(--spring), box-shadow .3s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .open-pay-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .12), transparent);
+      transform: translateX(-100%);
+      transition: transform .5s
+    }
+
+    .open-pay-btn:hover {
+      background: var(--terra2);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(192, 98, 47, .4)
+    }
+
+    .open-pay-btn:hover::before {
+      transform: translateX(100%)
+    }
+
+    .pay-accepted {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+      flex-wrap: wrap
+    }
+
+    .pay-chip {
+      height: 30px;
+      padding: 4px 12px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      font-family: var(--font-head);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .05em
+    }
+
+    .pay-chip.visa {
+      color: #1a1f71
+    }
+
+    .pay-chip.mc {
+      color: #eb001b
+    }
+
+    .pay-chip.amex {
+      color: #2e77bc
+    }
+
+    .pay-chip.disc {
+      color: #e65c00
+    }
+
+    .pay-chip.ach {
+      background: var(--charcoal);
+      color: var(--gold);
+      border-color: var(--charcoal)
+    }
+
+    /* ============================================================
+       PAYMENT MODAL — ENHANCED
+    ============================================================ */
+    .pm-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 8000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .4s var(--ease)
+    }
+
+    .pm-overlay.open {
+      opacity: 1;
+      pointer-events: all
+    }
+
+    .pm-overlay.open .pm-container {
+      transform: scale(1) translateY(0)
+    }
+
+    .pm-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(14, 12, 10, .88);
+      backdrop-filter: blur(12px)
+    }
+
+    .pm-container {
+      position: relative;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      max-width: 980px;
+      width: 100%;
+      max-height: 92vh;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 48px 120px rgba(0, 0, 0, .5);
+      transform: scale(.95) translateY(20px);
+      transition: transform .5s var(--spring)
+    }
+
+    /* LEFT PANEL */
+    .pm-left {
+      background: var(--charcoal);
+      padding: 36px 32px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      scrollbar-width: thin;
+      scrollbar-color: var(--stone2) transparent
+    }
+
+    .pm-left::-webkit-scrollbar {
+      width: 3px
+    }
+
+    .pm-left::-webkit-scrollbar-thumb {
+      background: var(--stone2);
+      border-radius: 3px
+    }
+
+    .pm-left-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, .08)
+    }
+
+    .pm-logo-mark {
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, .08);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0
+    }
+
+    .pm-logo-mark svg {
+      width: 26px;
+      height: 26px
+    }
+
+    .pm-brand {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -.01em
+    }
+
+    .pm-brand-sub {
+      font-size: 9.5px;
+      color: rgba(255, 255, 255, .35);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-top: 2px
+    }
+
+    .pm-section-label {
+      font-family: var(--font-head);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .3);
+      margin-bottom: 12px
+    }
+
+    /* Material items */
+    .pm-mat-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 6px
+    }
+
+    .pm-mat-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 9px;
+      border: 1.5px solid rgba(255, 255, 255, .07);
+      background: rgba(255, 255, 255, .03);
+      transition: all .2s var(--spring);
+      position: relative;
+      overflow: hidden
+    }
+
+    .pm-mat-item:hover {
+      border-color: rgba(255, 255, 255, .15);
+      background: rgba(255, 255, 255, .06)
+    }
+
+    .pm-mat-item.selected {
+      border-color: var(--terra);
+      background: rgba(192, 98, 47, .12)
+    }
+
+    .pm-mat-swatch {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      border: 1px solid rgba(255, 255, 255, .1)
+    }
+
+    .pm-mat-body {
+      flex: 1;
+      min-width: 0
+    }
+
+    .pm-mat-name {
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--white)
+    }
+
+    .pm-mat-finish {
+      font-size: 10px;
+      color: rgba(255, 255, 255, .35);
+      margin-top: 1px
+    }
+
+    .pm-mat-price {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      white-space: nowrap
+    }
+
+    .pm-mat-price span {
+      font-family: var(--font-body);
+      font-size: 9px;
+      color: rgba(255, 255, 255, .3);
+      font-weight: 400
+    }
+
+    .pm-mat-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--terra);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: white;
+      font-weight: 700;
+      opacity: 0;
+      transform: scale(0);
+      transition: all .2s var(--spring);
+      flex-shrink: 0
+    }
+
+    .pm-mat-item.selected .pm-mat-check {
+      opacity: 1;
+      transform: scale(1)
+    }
+
+    /* QTY area */
+    .pm-qty-area {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 12px;
+      align-items: end;
+      margin-bottom: 20px;
+      margin-top: 4px
+    }
+
+    .pm-qty-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px
+    }
+
+    .pm-qty-label {
+      font-family: var(--font-head);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .4)
+    }
+
+    .pm-qty-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border: 1.5px solid rgba(255, 255, 255, .1);
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, .04)
+    }
+
+    .pm-qty-btn {
+      width: 34px;
+      height: 38px;
+      background: rgba(255, 255, 255, .06);
+      border: none;
+      color: rgba(255, 255, 255, .7);
+      font-size: 16px;
+      font-weight: 700;
+      transition: background .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0
+    }
+
+    .pm-qty-btn:hover {
+      background: var(--terra);
+      color: var(--white)
+    }
+
+    .pm-qty-inp {
+      flex: 1;
+      min-width: 0;
+      height: 38px;
+      border: none;
+      text-align: center;
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      background: transparent;
+      outline: none
+    }
+
+    .pm-qty-inp::-webkit-inner-spin-button,
+    .pm-qty-inp::-webkit-outer-spin-button {
+      -webkit-appearance: none
+    }
+
+    .pm-qty-sep {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, .2);
+      text-align: center;
+      padding-bottom: 4px
+    }
+
+    /* Summary card */
+    .pm-summary-card {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 10px;
+      padding: 18px;
+      margin-bottom: 20px
+    }
+
+    .pm-summary-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 0
+    }
+
+    .pm-summary-row+.pm-summary-row {
+      border-top: 1px solid rgba(255, 255, 255, .05)
+    }
+
+    .pm-summary-total {
+      padding-top: 12px !important;
+      margin-top: 4px;
+      border-top: 1px solid rgba(255, 255, 255, .12) !important
+    }
+
+    .pm-summary-label {
+      font-size: 11px;
+      color: rgba(255, 255, 255, .35);
+      font-weight: 500
+    }
+
+    .pm-summary-val {
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--white)
+    }
+
+    .pm-total-big {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold) !important
+    }
+
+    /* Bottom badges */
+    .pm-badges {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .pm-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, .35);
+      font-weight: 500
+    }
+
+    .pm-badge-item svg {
+      flex-shrink: 0;
+      color: var(--sage)
+    }
+
+    /* RIGHT PANEL */
+    .pm-right {
+      background: var(--white);
+      padding: 40px 44px;
+      overflow-y: auto;
+      position: relative;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent
+    }
+
+    .pm-right::-webkit-scrollbar {
+      width: 3px
+    }
+
+    .pm-right::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px
+    }
+
+    .pm-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      background: var(--off);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      transition: all .2s var(--spring);
+      z-index: 10
+    }
+
+    .pm-close:hover {
+      background: var(--terra);
+      border-color: var(--terra);
+      color: var(--white);
+      transform: rotate(90deg) scale(1.1)
+    }
+
+    .pm-right-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      padding-right: 48px
+    }
+
+    .pm-form-title {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: var(--charcoal)
+    }
+
+    .pm-secure-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-head);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      background: rgba(122, 140, 110, .1);
+      border: 1px solid rgba(122, 140, 110, .2);
+      border-radius: 20px;
+      padding: 7px 14px
+    }
+
+    /* Step indicator */
+    .pm-steps {
+      display: flex;
+      align-items: center;
+      margin-bottom: 32px
+    }
+
+    .pm-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+      z-index: 1
+    }
+
+    .pm-step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: var(--off);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--muted);
+      transition: all .3s var(--spring)
+    }
+
+    .pm-step-label {
+      font-family: var(--font-head);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color .3s;
+      white-space: nowrap
+    }
+
+    .pm-step.active .pm-step-num {
+      border-color: var(--terra);
+      background: var(--terra);
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(192, 98, 47, .35)
+    }
+
+    .pm-step.active .pm-step-label {
+      color: var(--terra)
+    }
+
+    .pm-step.done .pm-step-num {
+      border-color: var(--sage);
+      background: var(--sage);
+      color: var(--white)
+    }
+
+    .pm-step.done .pm-step-label {
+      color: var(--sage)
+    }
+
+    .pm-step-line {
+      flex: 1;
+      height: 1.5px;
+      background: var(--border);
+      margin: 0 8px;
+      margin-bottom: 18px;
+      transition: background .4s
+    }
+
+    .pm-step-line.done {
+      background: var(--sage)
+    }
+
+    /* Panels */
+    .pm-panel {
+      display: none
+    }
+
+    .pm-panel.active {
+      display: block;
+      animation: pmFadeIn .35s var(--ease) both
+    }
+
+    @keyframes pmFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* Form elements */
+    .pm-field-section {
+      font-family: var(--font-head);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .pm-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    .pm-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 14px
+    }
+
+    .pm-field-group label {
+      font-family: var(--font-head);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      gap: 4px
+    }
+
+    .req {
+      color: var(--terra)
+    }
+
+    .pm-field-group input,
+    .pm-field-group select {
+      width: 100%;
+      padding: 11px 13px;
+      border: 1.5px solid var(--border);
+      border-radius: 7px;
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      color: var(--charcoal);
+      background: var(--off);
+      outline: none;
+      transition: border-color .25s, background .25s, box-shadow .25s
+    }
+
+    .pm-field-group input:focus,
+    .pm-field-group select:focus {
+      border-color: var(--terra);
+      background: var(--white);
+      box-shadow: 0 0 0 4px rgba(192, 98, 47, .08)
+    }
+
+    .pm-field-group input.has-error {
+      border-color: #e53e3e
+    }
+
+    /* Card tabs */
+    .pm-card-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px
+    }
+
+    .pm-card-tab {
+      flex: 1;
+      padding: 10px 14px;
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      background: var(--off);
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transition: all .2s var(--spring)
+    }
+
+    .pm-card-tab:hover {
+      border-color: var(--stone2);
+      color: var(--charcoal)
+    }
+
+    .pm-card-tab.active {
+      background: var(--charcoal);
+      border-color: var(--charcoal);
+      color: var(--white)
+    }
+
+    /* Accepted cards */
+    .pm-accepted-row {
+      display: flex;
+      gap: 7px;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap
+    }
+
+    .pm-card-chip {
+      height: 26px;
+      padding: 3px 10px;
+      background: var(--off);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: var(--font-head);
+      font-size: 8.5px;
+      font-weight: 800;
+      letter-spacing: .05em;
+      display: flex;
+      align-items: center
+    }
+
+    .pm-card-chip.visa {
+      color: #1a1f71
+    }
+
+    .pm-card-chip.mc {
+      color: #eb001b
+    }
+
+    .pm-card-chip.amex {
+      color: #2e77bc
+    }
+
+    .pm-card-chip.disc {
+      color: #e65c00
+    }
+
+    /* Pay panels */
+    .pm-pay-panel {
+      display: none
+    }
+
+    .pm-pay-panel.active {
+      display: block;
+      animation: pmFadeIn .3s var(--ease) both
+    }
+
+    /* Card input wrap */
+    .pm-card-wrap {
+      position: relative
+    }
+
+    .pm-card-wrap input {
+      padding-right: 48px
+    }
+
+    .pm-card-brand {
+      position: absolute;
+      right: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none
+    }
+
+    /* Expiry row */
+    .pm-exp-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 0
+    }
+
+    .pm-exp-row .pm-field-group {
+      margin-bottom: 0
+    }
+
+    .pm-cvv-help {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid var(--muted);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-left: 2px
+    }
+
+    /* ACH notice */
+    .pm-ach-notice {
+      background: rgba(212, 168, 83, .08);
+      border: 1px solid rgba(212, 168, 83, .2);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.65;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px
+    }
+
+    .pm-ach-notice svg {
+      flex-shrink: 0;
+      color: var(--gold);
+      margin-top: 1px
+    }
+
+    /* Buttons */
+    .pm-next-btn {
+      width: 100%;
+      padding: 15px;
+      background: var(--terra);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background .3s, transform .2s var(--spring), box-shadow .3s;
+      margin-top: 4px
+    }
+
+    .pm-next-btn:hover {
+      background: var(--terra2);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(192, 98, 47, .35)
+    }
+
+    .pm-next-btn:disabled {
+      opacity: .5;
+      pointer-events: none
+    }
+
+    .pm-back-btn {
+      padding: 12px 20px;
+      background: transparent;
+      color: var(--muted);
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      transition: all .2s
+    }
+
+    .pm-back-btn:hover {
+      border-color: var(--charcoal);
+      color: var(--charcoal)
+    }
+
+    .pm-btn-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px
+    }
+
+    .pm-btn-row .pm-next-btn {
+      flex: 1;
+      margin-top: 0
+    }
+
+    /* Review blocks */
+    .pm-review-block {
+      background: var(--off);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      border: 1px solid var(--border)
+    }
+
+    .pm-review-header {
+      font-family: var(--font-head);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 7px
+    }
+
+    .pm-review-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 6px
+    }
+
+    .pm-review-label {
+      color: var(--muted)
+    }
+
+    .pm-review-val {
+      font-weight: 600;
+      color: var(--charcoal)
+    }
+
+    .pm-total-bar {
+      background: var(--charcoal);
+      border-radius: 10px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px
+    }
+
+    .pm-total-bar span:first-child {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, .5);
+      letter-spacing: .1em;
+      text-transform: uppercase
+    }
+
+    .pm-total-bar-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold)
+    }
+
+    /* Submit button */
+    .pm-submit-btn {
+      width: 100%;
+      padding: 17px;
+      background: var(--terra);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background .3s, transform .2s var(--spring), box-shadow .3s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .pm-submit-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .1), transparent);
+      transform: translateX(-100%);
+      transition: transform .6s
+    }
+
+    .pm-submit-btn:hover {
+      background: var(--terra2);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(192, 98, 47, .4)
+    }
+
+    .pm-submit-btn:hover::before {
+      transform: translateX(100%)
+    }
+
+    .pm-submit-btn.loading {
+      color: transparent;
+      pointer-events: none
+    }
+
+    .pm-submit-btn.loading::after {
+      content: '';
+      position: absolute;
+      inset: 50%;
+      width: 16px;
+      height: 16px;
+      margin: -8px 0 0 -8px;
+      border: 2px solid rgba(255, 255, 255, .3);
+      border-top-color: var(--white);
+      border-radius: 50%;
+      animation: spin .6s linear infinite
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .pm-submit-note {
+      font-size: 10.5px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.6
+    }
+
+    .pm-submit-note a {
+      color: var(--terra);
+      text-decoration: underline
+    }
+
+    /* Feedback */
+    .pm-feedback {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: all .3s;
+      pointer-events: none
+    }
+
+    .pm-feedback.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all
+    }
+
+    .pm-feedback.error {
+      background: rgba(192, 98, 47, .1);
+      color: var(--terra);
+      border-left: 3px solid var(--terra)
+    }
+
+    .pm-feedback.success {
+      background: rgba(122, 140, 110, .12);
+      color: var(--sage);
+      border-left: 3px solid var(--sage)
+    }
+
+    /* Success state */
+    .pm-success {
+      text-align: center;
+      padding: 40px 20px
+    }
+
+    .pm-success-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sage), #4a7a4a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      animation: popIn .5s var(--spring) both;
+      box-shadow: 0 12px 32px rgba(122, 140, 110, .35)
+    }
+
+    .pm-success-icon svg {
+      color: var(--white)
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0);
+        opacity: 0
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1
+      }
+    }
+
+    .pm-success-title {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 12px
+    }
+
+    .pm-success-msg {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 360px;
+      margin: 0 auto
+    }
+
     /* CONTACT */
     .cta-section {
       padding: 130px 0;
@@ -2688,6 +3806,58 @@
       box-shadow: 0 12px 32px rgba(192, 98, 47, .4)
     }
 
+    .form-feedback {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity .3s, transform .3s;
+      pointer-events: none
+    }
+
+    .form-feedback.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all
+    }
+
+    .form-feedback.success {
+      background: rgba(122, 140, 110, .15);
+      color: var(--sage);
+      border-left: 3px solid var(--sage)
+    }
+
+    .form-feedback.error {
+      background: rgba(192, 98, 47, .15);
+      color: var(--terra);
+      border-left: 3px solid var(--terra)
+    }
+
+    .form-submit:disabled {
+      opacity: .6
+    }
+
+    .form-submit.loading {
+      position: relative;
+      color: transparent
+    }
+
+    .form-submit.loading::after {
+      content: '';
+      position: absolute;
+      inset: 50%;
+      width: 14px;
+      height: 14px;
+      margin: -7px 0 0 -7px;
+      border: 2px solid rgba(255, 255, 255, .3);
+      border-top-color: var(--white);
+      border-radius: 50%;
+      animation: spin .6s linear infinite
+    }
+
     /* FOOTER */
     footer {
       background: #0E0C0A;
@@ -2808,66 +3978,6 @@
       gap: 24px
     }
 
-    /* FORM FEEDBACK */
-    .form-feedback {
-      margin-top: 16px;
-      padding: 14px 16px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 600;
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity .3s, transform .3s;
-      pointer-events: none
-    }
-
-    .form-feedback.show {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: all
-    }
-
-    .form-feedback.success {
-      background: rgba(122, 140, 110, .15);
-      color: var(--sage);
-      border-left: 3px solid var(--sage)
-    }
-
-    .form-feedback.error {
-      background: rgba(192, 98, 47, .15);
-      color: var(--terra);
-      border-left: 3px solid var(--terra)
-    }
-
-    .form-submit:disabled {
-      opacity: .6;
-      cursor: not-allowed
-    }
-
-    .form-submit.loading {
-      position: relative;
-      color: transparent
-    }
-
-    .form-submit.loading::after {
-      content: '';
-      position: absolute;
-      inset: 50%;
-      width: 14px;
-      height: 14px;
-      margin: -7px 0 0 -7px;
-      border: 2px solid rgba(255, 255, 255, .3);
-      border-top-color: var(--white);
-      border-radius: 50%;
-      animation: spin .6s linear infinite
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg)
-      }
-    }
-
     @media(max-width:1100px) {
       .container {
         padding: 0 32px
@@ -2932,55 +4042,6 @@
         position: static
       }
 
-      .gallery-masonry {
-        grid-template-columns: repeat(6, 1fr)
-      }
-
-      .gal-item:nth-child(1) {
-        grid-column: 1/4;
-        grid-row: 1/6
-      }
-
-      .gal-item:nth-child(2) {
-        grid-column: 4/7;
-        grid-row: 1/4
-      }
-
-      .gal-item:nth-child(3) {
-        grid-column: 1/4;
-        grid-row: 6/10
-      }
-
-      .gal-item:nth-child(4) {
-        grid-column: 4/7;
-        grid-row: 4/8
-      }
-
-      .gal-item:nth-child(5) {
-        grid-column: 1/4;
-        grid-row: 10/14
-      }
-
-      .gal-item:nth-child(6) {
-        grid-column: 4/7;
-        grid-row: 8/12
-      }
-
-      .gal-item:nth-child(7) {
-        grid-column: 1/4;
-        grid-row: 14/18
-      }
-
-      .gal-item:nth-child(8) {
-        grid-column: 4/7;
-        grid-row: 12/16
-      }
-
-      .gal-item:nth-child(n+9) {
-        grid-column: span 3;
-        grid-row: span 4
-      }
-
       .gallery-stats {
         grid-template-columns: repeat(2, 1fr)
       }
@@ -2988,6 +4049,30 @@
       .topbar,
       .nav-inner {
         padding: 9px 32px
+      }
+
+      .pm-container {
+        grid-template-columns: 1fr;
+        max-width: 540px
+      }
+
+      .pm-left {
+        display: none
+      }
+    }
+
+    @media(max-width:640px) {
+      .pm-right {
+        padding: 28px 24px
+      }
+
+      .pm-row {
+        grid-template-columns: 1fr
+      }
+
+      .pm-exp-row {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto
       }
     }
   </style>
@@ -3021,6 +4106,426 @@
       </div>
     </div>
   </div>
+
+  <!-- ============================================================
+     PAYMENT MODAL
+============================================================ -->
+  <div id="paymentModal" class="pm-overlay" aria-modal="true" role="dialog">
+    <div class="pm-backdrop" onclick="closePaymentModal()"></div>
+    <div class="pm-container">
+
+      <!-- LEFT: Material & Qty Selection -->
+      <div class="pm-left">
+        <div class="pm-left-header">
+          <div class="pm-logo-mark">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M16 3L29 16L16 16Z" fill="#C8B89A" opacity=".9" />
+              <path d="M16 16L29 16L16 29Z" fill="#8A7060" opacity=".8" />
+              <path d="M16 16L3 16L16 29Z" fill="#C0622F" opacity=".9" />
+              <path d="M16 3L3 16L16 16Z" fill="#A08060" opacity=".75" />
+              <circle cx="16" cy="16" r="3" fill="white" opacity=".95" />
+            </svg>
+          </div>
+          <div>
+            <div class="pm-brand">Artisan Tile & Stone</div>
+            <div class="pm-brand-sub">Material Order Portal</div>
+          </div>
+        </div>
+
+        <div class="pm-section-label">01 — Select Material</div>
+        <div class="pm-mat-grid">
+          <div class="pm-mat-item" data-mat="Marble" data-price="18" onclick="pmSelectMaterial(this)">
+            <div class="pm-mat-swatch" style="background:linear-gradient(160deg,#E8E0D5,#A89070)"></div>
+            <div class="pm-mat-body">
+              <div class="pm-mat-name">Marble</div>
+              <div class="pm-mat-finish">Polished & Honed</div>
+            </div>
+            <div class="pm-mat-price">$18<span>/sqft</span></div>
+            <div class="pm-mat-check">✓</div>
+          </div>
+          <div class="pm-mat-item" data-mat="Slate" data-price="12" onclick="pmSelectMaterial(this)">
+            <div class="pm-mat-swatch" style="background:linear-gradient(160deg,#4A4540,#2C2825)"></div>
+            <div class="pm-mat-body">
+              <div class="pm-mat-name">Slate</div>
+              <div class="pm-mat-finish">Cleft Natural</div>
+            </div>
+            <div class="pm-mat-price">$12<span>/sqft</span></div>
+            <div class="pm-mat-check">✓</div>
+          </div>
+          <div class="pm-mat-item" data-mat="Travertine" data-price="14" onclick="pmSelectMaterial(this)">
+            <div class="pm-mat-swatch" style="background:linear-gradient(160deg,#C8A882,#A07850)"></div>
+            <div class="pm-mat-body">
+              <div class="pm-mat-name">Travertine</div>
+              <div class="pm-mat-finish">Filled & Brushed</div>
+            </div>
+            <div class="pm-mat-price">$14<span>/sqft</span></div>
+            <div class="pm-mat-check">✓</div>
+          </div>
+          <div class="pm-mat-item" data-mat="Porcelain" data-price="8" onclick="pmSelectMaterial(this)">
+            <div class="pm-mat-swatch" style="background:linear-gradient(160deg,#8B7355,#4A3D2E)"></div>
+            <div class="pm-mat-body">
+              <div class="pm-mat-name">Porcelain</div>
+              <div class="pm-mat-finish">Large Format</div>
+            </div>
+            <div class="pm-mat-price">$8<span>/sqft</span></div>
+            <div class="pm-mat-check">✓</div>
+          </div>
+          <div class="pm-mat-item" data-mat="Limestone" data-price="11" onclick="pmSelectMaterial(this)">
+            <div class="pm-mat-swatch" style="background:linear-gradient(160deg,#D4C4B0,#B0A090)"></div>
+            <div class="pm-mat-body">
+              <div class="pm-mat-name">Limestone</div>
+              <div class="pm-mat-finish">Classic & Contemporary</div>
+            </div>
+            <div class="pm-mat-price">$11<span>/sqft</span></div>
+            <div class="pm-mat-check">✓</div>
+          </div>
+          <div class="pm-mat-item" data-mat="Quartzite" data-price="22" onclick="pmSelectMaterial(this)">
+            <div class="pm-mat-swatch" style="background:linear-gradient(160deg,#7A8C6E,#5A6C4E)"></div>
+            <div class="pm-mat-body">
+              <div class="pm-mat-name">Quartzite</div>
+              <div class="pm-mat-finish">Durability & Beauty</div>
+            </div>
+            <div class="pm-mat-price">$22<span>/sqft</span></div>
+            <div class="pm-mat-check">✓</div>
+          </div>
+        </div>
+
+        <div class="pm-section-label" style="margin-top:24px">02 — Square Footage & Quantity</div>
+        <div class="pm-qty-area">
+          <div class="pm-qty-field">
+            <label class="pm-qty-label">Square Feet (sqft)</label>
+            <div class="pm-qty-row">
+              <button class="pm-qty-btn" onclick="pmChangeQty('sqft',-10)">−</button>
+              <input class="pm-qty-inp" type="number" id="pmSqft" value="50" min="1" max="99999"
+                oninput="pmUpdateTotal()">
+              <button class="pm-qty-btn" onclick="pmChangeQty('sqft',10)">+</button>
+            </div>
+          </div>
+          <div class="pm-qty-sep">×</div>
+          <div class="pm-qty-field">
+            <label class="pm-qty-label">Quantity (packs)</label>
+            <div class="pm-qty-row">
+              <button class="pm-qty-btn" onclick="pmChangeQty('qty',-1)">−</button>
+              <input class="pm-qty-inp" type="number" id="pmQty" value="1" min="1" max="999" oninput="pmUpdateTotal()">
+              <button class="pm-qty-btn" onclick="pmChangeQty('qty',1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pm-summary-card">
+          <div class="pm-summary-row"><span class="pm-summary-label">Material</span><span class="pm-summary-val"
+              id="pmSumMat">—</span></div>
+          <div class="pm-summary-row"><span class="pm-summary-label">Coverage</span><span class="pm-summary-val"
+              id="pmSumCoverage">— sq ft</span></div>
+          <div class="pm-summary-row"><span class="pm-summary-label">Unit Price</span><span class="pm-summary-val"
+              id="pmSumUnit">—</span></div>
+          <div class="pm-summary-row pm-summary-total"><span class="pm-summary-label">Order Total</span><span
+              class="pm-summary-val pm-total-big" id="pmSumTotal">$0.00</span></div>
+        </div>
+
+        <div class="pm-badges">
+          <div class="pm-badge-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              width="13">
+              <rect x="3" y="11" width="18" height="11" rx="2" />
+              <path d="M7 11V7a5 5 0 0110 0v4" />
+            </svg>256-bit SSL Encrypted</div>
+          <div class="pm-badge-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              width="13">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>Written Satisfaction Guarantee</div>
+          <div class="pm-badge-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              width="13">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>Order Confirmation in 24 hrs</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Payment Form -->
+      <div class="pm-right">
+        <button class="pm-close" onclick="closePaymentModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+
+        <div class="pm-right-header">
+          <h2 class="pm-form-title">Complete Order</h2>
+          <div class="pm-secure-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12">
+              <rect x="3" y="11" width="18" height="11" rx="2" />
+              <path d="M7 11V7a5 5 0 0110 0v4" />
+            </svg>
+            Secure Payment
+          </div>
+        </div>
+
+        <!-- Step indicator -->
+        <div class="pm-steps">
+          <div class="pm-step active" id="pms-1">
+            <div class="pm-step-num">1</div>
+            <div class="pm-step-label">Billing</div>
+          </div>
+          <div class="pm-step-line" id="pmsl-1"></div>
+          <div class="pm-step" id="pms-2">
+            <div class="pm-step-num">2</div>
+            <div class="pm-step-label">Payment</div>
+          </div>
+          <div class="pm-step-line" id="pmsl-2"></div>
+          <div class="pm-step" id="pms-3">
+            <div class="pm-step-num">3</div>
+            <div class="pm-step-label">Review</div>
+          </div>
+        </div>
+
+        <!-- STEP 1: Billing -->
+        <div class="pm-panel active" id="pm-panel-1">
+          <div class="pm-field-section">Billing Information</div>
+          <div class="pm-row">
+            <div class="pm-field-group"><label>First Name <span class="req">*</span></label><input type="text"
+                id="pmFirstName" placeholder="John" autocomplete="given-name"></div>
+            <div class="pm-field-group"><label>Last Name <span class="req">*</span></label><input type="text"
+                id="pmLastName" placeholder="Smith" autocomplete="family-name"></div>
+          </div>
+          <div class="pm-field-group"><label>Email Address <span class="req">*</span></label><input type="email"
+              id="pmEmail" placeholder="john@email.com" autocomplete="email"></div>
+          <div class="pm-field-group"><label>Phone Number <span class="req">*</span></label><input type="tel"
+              id="pmPhone" placeholder="(313) 000-0000" autocomplete="tel"></div>
+          <div class="pm-field-group"><label>Billing Address <span class="req">*</span></label><input type="text"
+              id="pmAddress" placeholder="884 W. Ann Arbor Rd" autocomplete="street-address"></div>
+          <div class="pm-row">
+            <div class="pm-field-group"><label>City <span class="req">*</span></label><input type="text" id="pmCity"
+                placeholder="Plymouth" autocomplete="address-level2"></div>
+            <div class="pm-field-group"><label>State <span class="req">*</span></label>
+              <select id="pmState" autocomplete="address-level1">
+                <option value="">Select...</option>
+                <option>Michigan</option>
+                <option>Ohio</option>
+                <option>Indiana</option>
+                <option>Wisconsin</option>
+                <option>Illinois</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="pm-row">
+            <div class="pm-field-group"><label>ZIP Code <span class="req">*</span></label><input type="text" id="pmZip"
+                placeholder="48170" maxlength="5" autocomplete="postal-code"></div>
+            <div class="pm-field-group"><label>Invoice # <span
+                  style="color:var(--muted);font-weight:400;text-transform:none;font-size:10px">(optional)</span></label><input
+                type="text" id="pmInvoice" placeholder="INV-2025-001"></div>
+          </div>
+          <button class="pm-next-btn" onclick="pmGoToStep(2)">
+            Continue to Payment
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- STEP 2: Payment -->
+        <div class="pm-panel" id="pm-panel-2">
+          <div class="pm-field-section">Payment Method</div>
+          <div class="pm-card-tabs">
+            <button class="pm-card-tab active" id="pmTab-card" onclick="pmSwitchPayTab('card', this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15">
+                <rect x="1" y="4" width="22" height="16" rx="2" />
+                <line x1="1" y1="10" x2="23" y2="10" />
+              </svg>
+              Credit / Debit Card
+            </button>
+            <button class="pm-card-tab" id="pmTab-ach" onclick="pmSwitchPayTab('ach', this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              </svg>
+              ACH / eCheck
+            </button>
+          </div>
+
+          <div class="pm-accepted-row" id="pmAcceptedRow">
+            <div class="pm-card-chip visa">VISA</div>
+            <div class="pm-card-chip mc">MC</div>
+            <div class="pm-card-chip amex">AMEX</div>
+            <div class="pm-card-chip disc">DISC</div>
+          </div>
+
+          <!-- Card panel -->
+          <div id="pm-pay-card" class="pm-pay-panel active">
+            <div class="pm-field-group"><label>Cardholder Name <span class="req">*</span></label><input type="text"
+                id="pmCardName" placeholder="John Smith" autocomplete="cc-name"></div>
+            <div class="pm-field-group">
+              <label>Card Number <span class="req">*</span></label>
+              <div class="pm-card-wrap">
+                <input type="text" id="pmCardNum" placeholder="1234  5678  9012  3456" maxlength="19"
+                  oninput="pmFormatCard(this)" autocomplete="cc-number">
+                <div class="pm-card-brand" id="pmCardBrand">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22"
+                    opacity=".35">
+                    <rect x="1" y="4" width="22" height="16" rx="2" />
+                    <line x1="1" y1="10" x2="23" y2="10" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="pm-exp-row">
+              <div class="pm-field-group" style="margin-bottom:0">
+                <label>Month <span class="req">*</span></label>
+                <select id="pmExpMM" autocomplete="cc-exp-month">
+                  <option value="">MM</option>
+                  <option>01</option>
+                  <option>02</option>
+                  <option>03</option>
+                  <option>04</option>
+                  <option>05</option>
+                  <option>06</option>
+                  <option>07</option>
+                  <option>08</option>
+                  <option>09</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
+              </div>
+              <div class="pm-field-group" style="margin-bottom:0">
+                <label>Year <span class="req">*</span></label>
+                <select id="pmExpYY" autocomplete="cc-exp-year">
+                  <option value="">YYYY</option>
+                  <option>2025</option>
+                  <option>2026</option>
+                  <option>2027</option>
+                  <option>2028</option>
+                  <option>2029</option>
+                  <option>2030</option>
+                </select>
+              </div>
+              <div class="pm-field-group" style="margin-bottom:0">
+                <label>CVV <span class="req">*</span> <span class="pm-cvv-help"
+                    title="3-digit code on back (4-digit for Amex)">?</span></label>
+                <input type="text" id="pmCvv" placeholder="•••" maxlength="4" autocomplete="cc-csc">
+              </div>
+            </div>
+          </div>
+
+          <!-- ACH panel -->
+          <div id="pm-pay-ach" class="pm-pay-panel">
+            <div class="pm-ach-notice">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              ACH / eCheck transfers process in 2–3 business days. No transaction fees.
+            </div>
+            <div class="pm-row">
+              <div class="pm-field-group"><label>Routing Number <span class="req">*</span></label><input type="text"
+                  id="pmRouting" placeholder="9-digit number" maxlength="9"></div>
+              <div class="pm-field-group"><label>Account Number <span class="req">*</span></label><input type="text"
+                  id="pmAccount" placeholder="Account number"></div>
+            </div>
+            <div class="pm-field-group"><label>Account Type <span class="req">*</span></label>
+              <select id="pmAccountType">
+                <option value="">Select type...</option>
+                <option>Checking</option>
+                <option>Savings</option>
+                <option>Business Checking</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="pm-btn-row" style="margin-top:20px">
+            <button class="pm-back-btn" onclick="pmGoToStep(1)">← Back</button>
+            <button class="pm-next-btn" onclick="pmGoToStep(3)">
+              Review Order
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 3: Review & Submit -->
+        <div class="pm-panel" id="pm-panel-3">
+          <div class="pm-field-section">Order Review</div>
+
+          <div class="pm-review-block">
+            <div class="pm-review-header">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+              </svg>
+              Material Order
+            </div>
+            <div id="pmReviewOrder"><span style="color:var(--muted);font-size:13px">No material selected</span></div>
+          </div>
+
+          <div class="pm-review-block">
+            <div class="pm-review-header">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+              </svg>
+              Billing Info
+            </div>
+            <div id="pmReviewBilling"><span style="color:var(--muted);font-size:13px">—</span></div>
+          </div>
+
+          <div class="pm-review-block">
+            <div class="pm-review-header">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14">
+                <rect x="1" y="4" width="22" height="16" rx="2" />
+                <line x1="1" y1="10" x2="23" y2="10" />
+              </svg>
+              Payment Method
+            </div>
+            <div id="pmReviewPayment"><span style="color:var(--muted);font-size:13px">—</span></div>
+          </div>
+
+          <div class="pm-total-bar">
+            <span>Total Due Today</span>
+            <span class="pm-total-bar-num" id="pmReviewTotal">$0.00</span>
+          </div>
+
+          <button class="pm-submit-btn" id="pmSubmitBtn" onclick="pmSubmit()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16">
+              <rect x="3" y="11" width="18" height="11" rx="2" />
+              <path d="M7 11V7a5 5 0 0110 0v4" />
+            </svg>
+            Confirm & Pay <span id="pmSubmitTotal"></span>
+          </button>
+          <div class="pm-submit-note">🔒 256-bit SSL encrypted. Card details are never stored on our servers. By
+            submitting you agree to our <a href="#">Terms</a>.</div>
+
+          <div class="pm-btn-row" style="margin-top:12px">
+            <button class="pm-back-btn" onclick="pmGoToStep(2)">← Edit Payment</button>
+          </div>
+
+          <div class="pm-feedback" id="pmFeedback"></div>
+        </div>
+
+        <!-- SUCCESS -->
+        <div class="pm-panel" id="pm-panel-success">
+          <div class="pm-success">
+            <div class="pm-success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="32">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <h3 class="pm-success-title">Order Submitted!</h3>
+            <p class="pm-success-msg" id="pmSuccessMsg">Your order has been received. You'll get a confirmation email
+              within 24 hours.</p>
+            <button class="pm-next-btn" style="margin-top:28px;max-width:240px;margin-left:auto;margin-right:auto"
+              onclick="closePaymentModal()">
+              Done — Close Window
+            </button>
+          </div>
+        </div>
+
+      </div><!-- /pm-right -->
+    </div><!-- /pm-container -->
+  </div><!-- /pm-overlay -->
 
   <div class="topbar">
     <span>🏆 <strong>A+ Rated</strong> — Better Business Bureau &nbsp;|&nbsp; Licensed, Bonded & Insured in
@@ -3093,7 +4598,7 @@
           <div class="dropdown">
             <a href="#"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                   stroke-width="2">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
                 </svg></span>Marble & Granite</a>
             <a href="#"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                   stroke-width="2">
@@ -3111,6 +4616,7 @@
         </li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#process">Our Process</a></li>
+        <li><a href="#payment" onclick="event.preventDefault();openPaymentModal()">Order & Pay</a></li>
         <li>
           <a href="#about">Company <svg viewBox="0 0 10 6" fill="none" width="10">
               <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
@@ -3136,12 +4642,11 @@
       <div class="nav-right">
         <a class="nav-phone" href="tel:+13135550000">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="15">
-            <path
-              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 10.5 19.79 19.79 0 011.61 2a2 2 0 012-2.18h3" />
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 10.5" />
           </svg>
           (313) 555-0000
         </a>
-        <a href="#contact" class="btn-quote">Free Estimate</a>
+        <button class="btn-quote" onclick="openPaymentModal()">Order & Pay</button>
       </div>
     </div>
   </nav>
@@ -3160,7 +4665,7 @@
         kitchen, bathroom, floor, and facade — transforming ordinary spaces into lasting works of art.</p>
       <div class="hero-btns">
         <a href="#portfolio" class="btn-primary-hero">View Our Work</a>
-        <a href="#contact" class="btn-outline-hero">Get Free Quote</a>
+        <a href="#" onclick="event.preventDefault();openPaymentModal()" class="btn-outline-hero">Order Materials</a>
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
@@ -3218,8 +4723,6 @@
       <span class="marquee-item"><span class="marquee-dot"></span>Marble & Granite</span>
       <span class="marquee-item"><span class="marquee-dot"></span>Outdoor & Patio</span>
       <span class="marquee-item"><span class="marquee-dot"></span>Commercial Projects</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Travertine & Slate</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Mosaic & Glass</span>
       <span class="marquee-item"><span class="marquee-dot"></span>Free Estimates</span>
       <span class="marquee-item"><span class="marquee-dot"></span>18+ Years Experience</span>
     </div>
@@ -3233,8 +4736,7 @@
           <div class="tag" style="margin-bottom:20px">Why Choose Us</div>
           <h2 class="sec-title">Crafted with <em>precision</em>,<br>built to last.</h2>
           <p class="intro-text">We're not a big-box install crew. We're a family-owned team of dedicated tile and stone
-            specialists who treat every project like it's our own home. Every cut, every grout joint, every seal — done
-            right the first time.</p>
+            specialists who treat every project like it's our own home.</p>
           <div class="trust-badges">
             <div class="trust-badge rsl rsl-d1">
               <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -3242,7 +4744,7 @@
                 </svg></div>
               <div>
                 <h4>Licensed & Bonded</h4>
-                <p>Fully licensed and bonded in the State of Michigan for all tile and masonry work.</p>
+                <p>Fully licensed and bonded in Michigan.</p>
               </div>
             </div>
             <div class="trust-badge rsl rsl-d2">
@@ -3252,7 +4754,7 @@
                 </svg></div>
               <div>
                 <h4>TCNA Certified</h4>
-                <p>Our installation methods follow Tile Council of North America standards.</p>
+                <p>Industry-standard installation methods.</p>
               </div>
             </div>
             <div class="trust-badge rsl rsl-d3">
@@ -3262,7 +4764,7 @@
                 </svg></div>
               <div>
                 <h4>Workmanship Warranty</h4>
-                <p>All our installations come with a written workmanship warranty.</p>
+                <p>Written warranty on every installation.</p>
               </div>
             </div>
             <div class="trust-badge rsl rsl-d4">
@@ -3272,7 +4774,7 @@
                 </svg></div>
               <div>
                 <h4>Family Business</h4>
-                <p>Owner-operated since 2006. We answer the phone and show up on time.</p>
+                <p>Owner-operated since 2006.</p>
               </div>
             </div>
           </div>
@@ -3320,7 +4822,7 @@
             </svg></div>
           <h3 class="svc-name">Kitchen Tile Installation</h3>
           <p class="svc-desc">Backsplashes, countertop surrounds, and full floor tile installations. From subway tile to
-            large-format slabs — we handle it all with precision.</p><span class="svc-link">Learn More →</span>
+            large-format slabs.</p><span class="svc-link">Learn More →</span>
         </div>
         <div class="svc-card" data-num="02">
           <div class="svc-num">02 — Service</div>
@@ -3331,8 +4833,7 @@
             </svg></div>
           <h3 class="svc-name">Bathroom & Shower Systems</h3>
           <p class="svc-desc">Full waterproofed shower builds, bath floor and wall tile, wainscoting, and niche
-            installations — engineered to handle Michigan's humidity and temperature swings.</p><span
-            class="svc-link">Learn More →</span>
+            installations.</p><span class="svc-link">Learn More →</span>
         </div>
         <div class="svc-card" data-num="03">
           <div class="svc-num">03 — Service</div>
@@ -3341,9 +4842,8 @@
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg></div>
           <h3 class="svc-name">Natural Stone & Marble</h3>
-          <p class="svc-desc">Marble, travertine, slate, and quartzite — cut, fitted, and sealed to perfection. We
-            source premium natural stone and install it with museum-grade care.</p><span class="svc-link">Learn More
-            →</span>
+          <p class="svc-desc">Marble, travertine, slate, and quartzite — cut, fitted, and sealed to perfection.</p><span
+            class="svc-link">Learn More →</span>
         </div>
         <div class="svc-card" data-num="04">
           <div class="svc-num">04 — Service</div>
@@ -3355,21 +4855,17 @@
             </svg></div>
           <h3 class="svc-name">Floor Tile & Hardscaping</h3>
           <p class="svc-desc">Large-format floor tile, herringbone patterns, custom borders, and radiant-heat compatible
-            installations. Every layout is planned to the millimeter.</p><span class="svc-link">Learn More →</span>
+            installations.</p><span class="svc-link">Learn More →</span>
         </div>
         <div class="svc-card" data-num="05">
           <div class="svc-num">05 — Service</div>
           <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round">
               <circle cx="12" cy="12" r="10" />
-              <path d="M8 14s1.5 2 4 2 4-2 4-2" />
-              <line x1="9" y1="9" x2="9.01" y2="9" />
-              <line x1="15" y1="9" x2="15.01" y2="9" />
             </svg></div>
           <h3 class="svc-name">Outdoor & Patio Tile</h3>
-          <p class="svc-desc">Frost-resistant exterior tile and natural pavers for patios, pool decks, driveways, and
-            walkways — rated for Michigan winters and engineered for drainage.</p><span class="svc-link">Learn More
-            →</span>
+          <p class="svc-desc">Frost-resistant exterior tile for patios, pool decks, driveways — rated for Michigan
+            winters.</p><span class="svc-link">Learn More →</span>
         </div>
         <div class="svc-card" data-num="06">
           <div class="svc-num">06 — Service</div>
@@ -3380,8 +4876,7 @@
             </svg></div>
           <h3 class="svc-name">Commercial & Retail</h3>
           <p class="svc-desc">High-traffic commercial flooring, retail storefronts, restaurant floors, and office
-            lobbies. We work on your schedule — nights, weekends, fast-tracked timelines.</p><span
-            class="svc-link">Learn More →</span>
+            lobbies.</p><span class="svc-link">Learn More →</span>
         </div>
       </div>
       <div class="services-mini rsl rsl-d2">
@@ -3416,64 +4911,101 @@
       <div class="materials-inner">
         <div class="mat-intro rsl-left">
           <div class="tag" style="margin-bottom:18px">Materials We Work With</div>
-          <h2 class="sec-title">Premium stone.<br><em>Endless possibilities.</em></h2>
-          <p>We work exclusively with premium-grade tile and natural stone — sourced from trusted suppliers and tested
-            for durability. From polished marble to matte porcelain, we have the material for your vision.</p>
-          <a href="#contact" class="mat-cta">Request a Material Consultation →</a>
+          <h2 class="sec-title">Premium stone.<br><em>Transparent pricing.</em></h2>
+          <p>We work exclusively with premium-grade tile and natural stone — sourced from trusted suppliers. All prices
+            shown are per square foot, materials only. Installation quoted separately.</p>
+          <a href="#" onclick="event.preventDefault();openPaymentModal()" class="mat-cta">Order Materials & Pay Online
+            →</a>
         </div>
         <div class="mat-grid rsl rsl-d2">
           <div class="mat-card">
             <div class="mat-swatch"><img src="images/image4.jpg"
                 onerror="this.style.background='linear-gradient(160deg,#E8E0D5,#A89070)';this.removeAttribute('src')"
-                alt="Marble"></div>
+                alt="Marble">
+              <div class="mat-badge">$18<small>per sq ft</small></div>
+            </div>
             <div class="mat-info">
               <div class="mat-name">Marble</div>
               <div class="mat-sub">Polished & Honed Finishes</div>
+              <div class="mat-price-row">
+                <div class="mat-price">$18.00 <span>per sq ft</span></div><button class="mat-order-btn"
+                  onclick="openModalWithMaterial('Marble',18)">Order Now</button>
+              </div>
             </div>
           </div>
           <div class="mat-card">
             <div class="mat-swatch"><img src="images/slate.jpg"
                 onerror="this.style.background='linear-gradient(160deg,#4A4540,#2C2825)';this.removeAttribute('src')"
-                alt="Slate"></div>
+                alt="Slate">
+              <div class="mat-badge">$12<small>per sq ft</small></div>
+            </div>
             <div class="mat-info">
               <div class="mat-name">Slate</div>
               <div class="mat-sub">Cleft Natural Surface</div>
+              <div class="mat-price-row">
+                <div class="mat-price">$12.00 <span>per sq ft</span></div><button class="mat-order-btn"
+                  onclick="openModalWithMaterial('Slate',12)">Order Now</button>
+              </div>
             </div>
           </div>
           <div class="mat-card">
             <div class="mat-swatch"><img src="images/image27.jpg"
                 onerror="this.style.background='linear-gradient(160deg,#C8A882,#A07850)';this.removeAttribute('src')"
-                alt="Travertine"></div>
+                alt="Travertine">
+              <div class="mat-badge">$14<small>per sq ft</small></div>
+            </div>
             <div class="mat-info">
               <div class="mat-name">Travertine</div>
               <div class="mat-sub">Filled & Brushed</div>
+              <div class="mat-price-row">
+                <div class="mat-price">$14.00 <span>per sq ft</span></div><button class="mat-order-btn"
+                  onclick="openModalWithMaterial('Travertine',14)">Order Now</button>
+              </div>
             </div>
           </div>
           <div class="mat-card">
             <div class="mat-swatch"><img src="images/Limestone.jpg"
                 onerror="this.style.background='linear-gradient(160deg,#8B7355,#4A3D2E)';this.removeAttribute('src')"
-                alt="Porcelain"></div>
+                alt="Porcelain">
+              <div class="mat-badge">$8<small>per sq ft</small></div>
+            </div>
             <div class="mat-info">
               <div class="mat-name">Porcelain</div>
               <div class="mat-sub">Large Format & Rectified</div>
+              <div class="mat-price-row">
+                <div class="mat-price">$8.00 <span>per sq ft</span></div><button class="mat-order-btn"
+                  onclick="openModalWithMaterial('Porcelain',8)">Order Now</button>
+              </div>
             </div>
           </div>
           <div class="mat-card">
             <div class="mat-swatch"><img src="images/Porcelain.jpg"
                 onerror="this.style.background='linear-gradient(160deg,#D4C4B0,#B0A090)';this.removeAttribute('src')"
-                alt="Limestone"></div>
+                alt="Limestone">
+              <div class="mat-badge">$11<small>per sq ft</small></div>
+            </div>
             <div class="mat-info">
               <div class="mat-name">Limestone</div>
               <div class="mat-sub">Classic & Contemporary</div>
+              <div class="mat-price-row">
+                <div class="mat-price">$11.00 <span>per sq ft</span></div><button class="mat-order-btn"
+                  onclick="openModalWithMaterial('Limestone',11)">Order Now</button>
+              </div>
             </div>
           </div>
           <div class="mat-card">
             <div class="mat-swatch"><img src="images/image19.jpg"
                 onerror="this.style.background='linear-gradient(160deg,#7A8C6E,#5A6C4E)';this.removeAttribute('src')"
-                alt="Quartzite"></div>
+                alt="Quartzite">
+              <div class="mat-badge">$22<small>per sq ft</small></div>
+            </div>
             <div class="mat-info">
               <div class="mat-name">Quartzite</div>
               <div class="mat-sub">Durability Meets Beauty</div>
+              <div class="mat-price-row">
+                <div class="mat-price">$22.00 <span>per sq ft</span></div><button class="mat-order-btn"
+                  onclick="openModalWithMaterial('Quartzite',22)">Order Now</button>
+              </div>
             </div>
           </div>
         </div>
@@ -3498,7 +5030,7 @@
           </div>
           <div class="step-title">Free Consultation</div>
           <p class="step-desc">We come to your home, assess the space, discuss your vision, and walk you through
-            material options at no charge.</p>
+            material options.</p>
         </div>
         <div class="step rsl rsl-d2">
           <div class="step-num">02<div class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -3507,8 +5039,8 @@
               </svg></div>
           </div>
           <div class="step-title">Design & Estimate</div>
-          <p class="step-desc">We create a detailed layout plan with material recommendations and provide a transparent
-            itemized quote.</p>
+          <p class="step-desc">We create a detailed layout plan with material recommendations and a transparent itemized
+            quote.</p>
         </div>
         <div class="step rsl rsl-d3">
           <div class="step-num">03<div class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -3517,8 +5049,7 @@
               </svg></div>
           </div>
           <div class="step-title">Material Selection</div>
-          <p class="step-desc">We source and deliver your chosen materials, providing samples and expert guidance on
-            size, finish, and grout pairing.</p>
+          <p class="step-desc">We source and deliver your chosen materials, providing samples and expert guidance.</p>
         </div>
         <div class="step rsl rsl-d4">
           <div class="step-num">04<div class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -3527,8 +5058,8 @@
               </svg></div>
           </div>
           <div class="step-title">Expert Installation</div>
-          <p class="step-desc">Our certified team installs your tile or stone with industry-grade precision — clean,
-            protected, and on schedule.</p>
+          <p class="step-desc">Our certified team installs your tile or stone with industry-grade precision — on
+            schedule.</p>
         </div>
         <div class="step rsl rsl-d5">
           <div class="step-num">05<div class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -3537,23 +5068,21 @@
               </svg></div>
           </div>
           <div class="step-title">Final Walkthrough</div>
-          <p class="step-desc">We walk through the completed project with you, address any punch list items, and provide
-            care instructions.</p>
+          <p class="step-desc">We walk through the completed project with you and provide full care instructions.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== CREATIVE GALLERY ========== -->
+  <!-- GALLERY -->
   <section id="portfolio" class="portfolio">
     <div class="container">
       <div class="port-header rsl">
         <div class="tag">Our Work</div>
         <h2 class="sec-title">Featured <em>projects</em></h2>
-        <p class="port-desc">Explore our curated collection of luxury installations across kitchens, bathrooms, and
-          outdoor spaces. Click any photo to view full size.</p>
+        <p class="port-desc">Explore our curated collection of luxury installations. Click any photo to view full size.
+        </p>
       </div>
-
       <div class="gallery-filters rsl rsl-d1">
         <button class="filter-btn active" data-filter="all">All Projects</button>
         <button class="filter-btn" data-filter="kitchen">Kitchens</button>
@@ -3562,14 +5091,10 @@
         <button class="filter-btn" data-filter="outdoor">Outdoor</button>
         <button class="filter-btn" data-filter="commercial">Commercial</button>
       </div>
-
       <div class="gallery-masonry" id="galleryGrid">
-
-        <!-- Item 1 — Hero large -->
         <div class="gal-item featured" data-cat="stone" data-title="Grand Arch Interior"
-          data-sub="Stone archway & flooring — Detroit Estate">
-          <span class="gal-corner">Featured</span>
-          <img src="images/image16.jpg"
+          data-sub="Stone archway & flooring — Detroit Estate"><span class="gal-corner">Featured</span><img
+            src="images/image16.jpg"
             onerror="this.style.background='linear-gradient(160deg,#8B7355,#3D2E22)';this.removeAttribute('src')"
             alt="Grand Arch Interior">
           <div class="gal-overlay">
@@ -3578,10 +5103,8 @@
             <div class="gal-sub">Stone archway & flooring — Detroit Estate</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="stone" data-title="Gothic Corridor"
-          data-sub="Limestone hallway with custom inlays">
-          <img src="images/image17.jpg"
+          data-sub="Limestone hallway with custom inlays"><img src="images/image17.jpg"
             onerror="this.style.background='linear-gradient(160deg,#C8A882,#7A6048)';this.removeAttribute('src')"
             alt="Gothic Corridor">
           <div class="gal-overlay">
@@ -3590,10 +5113,8 @@
             <div class="gal-sub">Limestone hallway with custom inlays</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="stone" data-title="Arched Marble Hall"
-          data-sub="Full marble corridor — Birmingham Estate">
-          <img src="images/image18.jpg"
+          data-sub="Full marble corridor — Birmingham Estate"><img src="images/image18.jpg"
             onerror="this.style.background='linear-gradient(160deg,#5C4A32,#2A1F16)';this.removeAttribute('src')"
             alt="Arched Marble Hall">
           <div class="gal-overlay">
@@ -3602,22 +5123,18 @@
             <div class="gal-sub">Full marble corridor — Birmingham Estate</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="stone" data-title="Stone Vaulted Entry"
-          data-sub="Hand-cut arch restoration — Historic property">
-          <img src="images/image19.jpg"
+          data-sub="Hand-cut arch restoration — Historic property"><img src="images/image19.jpg"
             onerror="this.style.background='linear-gradient(160deg,#4A3D2E,#1E1A14)';this.removeAttribute('src')"
             alt="Stone Vaulted Entry">
           <div class="gal-overlay">
             <div class="gal-label">Restoration</div>
             <div class="gal-title">Stone Vaulted Entry</div>
-            <div class="gal-sub">Hand-cut arch restoration — Historic property</div>
+            <div class="gal-sub">Hand-cut arch restoration</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="kitchen" data-title="Modern Kitchen Floor"
-          data-sub="Large-format porcelain — Grosse Pointe">
-          <img src="images/image29.jpg"
+          data-sub="Large-format porcelain — Grosse Pointe"><img src="images/image29.jpg"
             onerror="this.style.background='linear-gradient(160deg,#C0622F,#7A3A18)';this.removeAttribute('src')"
             alt="Modern Kitchen Floor">
           <div class="gal-overlay">
@@ -3626,10 +5143,8 @@
             <div class="gal-sub">Large-format porcelain — Grosse Pointe</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="kitchen" data-title="Backsplash Masterpiece"
-          data-sub="Handmade ceramic backsplash — Ann Arbor">
-          <img src="images/image33.jpg"
+          data-sub="Handmade ceramic — Ann Arbor"><img src="images/image33.jpg"
             onerror="this.style.background='linear-gradient(160deg,#8B7355,#4A3D2E)';this.removeAttribute('src')"
             alt="Backsplash">
           <div class="gal-overlay">
@@ -3638,10 +5153,8 @@
             <div class="gal-sub">Handmade ceramic — Ann Arbor</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="kitchen" data-title="Wood-Look Porcelain"
-          data-sub="Premium wood-effect floor tile — Troy, MI">
-          <img src="images/image34.jpg"
+          data-sub="Premium wood-effect floor tile — Troy, MI"><img src="images/image34.jpg"
             onerror="this.style.background='linear-gradient(160deg,#C8A882,#7A6048)';this.removeAttribute('src')"
             alt="Wood-Look Porcelain">
           <div class="gal-overlay">
@@ -3650,166 +5163,138 @@
             <div class="gal-sub">Premium wood-effect floor tile — Troy, MI</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="bathroom" data-title="Master Bath Retreat"
-          data-sub="Spa-style soaking tub surround — Bloomfield">
-          <img src="images/image40.jpg"
+          data-sub="Spa-style soaking tub surround — Bloomfield"><img src="images/image40.jpg"
             onerror="this.style.background='linear-gradient(160deg,#3D2E22,#1A1410)';this.removeAttribute('src')"
             alt="Master Bath">
           <div class="gal-overlay">
             <div class="gal-label">Bathroom</div>
             <div class="gal-title">Master Bath Retreat</div>
-            <div class="gal-sub">Spa-style soaking tub surround — Bloomfield</div>
+            <div class="gal-sub">Spa-style soaking tub — Bloomfield</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="outdoor" data-title="Travertine Patio"
-          data-sub="Natural travertine outdoor living — Northville">
-          <img src="images/patio.jpg"
+          data-sub="Natural travertine outdoor living — Northville"><img src="images/patio.jpg"
             onerror="this.style.background='linear-gradient(160deg,#7A8C6E,#5A6C4E)';this.removeAttribute('src')"
             alt="Travertine Patio">
           <div class="gal-overlay">
             <div class="gal-label">Outdoor</div>
             <div class="gal-title">Travertine Patio</div>
-            <div class="gal-sub">Natural travertine outdoor living — Northville</div>
+            <div class="gal-sub">Northville, MI</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="commercial" data-title="Commercial Showroom"
-          data-sub="2,400 sq ft luxury retail floor — Downtown Detroit">
-          <img src="images/image44.jpg"
+          data-sub="2,400 sq ft luxury retail — Downtown Detroit"><img src="images/image44.jpg"
             onerror="this.style.background='linear-gradient(160deg,#D4A853,#A07830)';this.removeAttribute('src')"
             alt="Commercial Showroom">
           <div class="gal-overlay">
             <div class="gal-label">Commercial</div>
             <div class="gal-title">Commercial Showroom</div>
-            <div class="gal-sub">2,400 sq ft luxury retail — Downtown Detroit</div>
+            <div class="gal-sub">2,400 sq ft — Downtown Detroit</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="bathroom" data-title="Geometric Shower"
-          data-sub="Hexagon mosaic full-bath installation — Livonia">
-          <img src="images/image11.jpg"
+          data-sub="Hexagon mosaic full-bath — Livonia"><img src="images/image11.jpg"
             onerror="this.style.background='linear-gradient(160deg,#B0A090,#6A5A40)';this.removeAttribute('src')"
             alt="Geometric Shower">
           <div class="gal-overlay">
             <div class="gal-label">Bathroom</div>
             <div class="gal-title">Geometric Shower</div>
-            <div class="gal-sub">Hexagon mosaic full-bath — Livonia</div>
+            <div class="gal-sub">Hexagon mosaic — Livonia</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="stone" data-title="Marble Waterfall Wall"
-          data-sub="Bookmatched marble feature wall — Farmington Hills">
-          <img src="images/image12.jpg"
+          data-sub="Bookmatched marble feature wall"><img src="images/image12.jpg"
             onerror="this.style.background='linear-gradient(160deg,#E0D8D0,#9A8A76)';this.removeAttribute('src')"
             alt="Marble Wall">
           <div class="gal-overlay">
             <div class="gal-label">Marble</div>
             <div class="gal-title">Marble Waterfall Wall</div>
-            <div class="gal-sub">Bookmatched marble feature wall</div>
+            <div class="gal-sub">Farmington Hills, MI</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="stone" data-title="Stone Fireplace Surround"
-          data-sub="Ledgestone fireplace — West Bloomfield">
-          <img src="images/image13.jpg"
+          data-sub="Ledgestone fireplace — West Bloomfield"><img src="images/image13.jpg"
             onerror="this.style.background='linear-gradient(160deg,#4A3D2E,#2A1F16)';this.removeAttribute('src')"
             alt="Fireplace">
           <div class="gal-overlay">
             <div class="gal-label">Stone</div>
             <div class="gal-title">Stone Fireplace Surround</div>
-            <div class="gal-sub">Ledgestone fireplace — West Bloomfield</div>
+            <div class="gal-sub">West Bloomfield, MI</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="outdoor" data-title="Pool Deck Slate"
-          data-sub="Cleft slate pool surround — Oakland County">
-          <img src="images/image46.jpg"
+          data-sub="Cleft slate pool surround — Oakland County"><img src="images/image46.jpg"
             onerror="this.style.background='linear-gradient(160deg,#5A6C4E,#3A4C2E)';this.removeAttribute('src')"
             alt="Pool Deck">
           <div class="gal-overlay">
             <div class="gal-label">Outdoor</div>
             <div class="gal-title">Pool Deck Slate</div>
-            <div class="gal-sub">Cleft slate pool surround — Oakland County</div>
+            <div class="gal-sub">Oakland County, MI</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="bathroom" data-title="Rain Shower Sanctuary"
-          data-sub="Full walk-in shower with niche — Novi">
-          <img src="images/bathroom.jpg"
+          data-sub="Full walk-in shower with niche — Novi"><img src="images/bathroom.jpg"
             onerror="this.style.background='linear-gradient(160deg,#C8B89A,#8A7060)';this.removeAttribute('src')"
             alt="Rain Shower">
           <div class="gal-overlay">
             <div class="gal-label">Bathroom</div>
             <div class="gal-title">Rain Shower Sanctuary</div>
-            <div class="gal-sub">Full walk-in shower with niche — Novi</div>
+            <div class="gal-sub">Novi, MI</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="kitchen" data-title="Chef's Kitchen Tile"
-          data-sub="Spanish terracotta floor — Rochester Hills">
-          <img src="images/chief.jpg"
+          data-sub="Spanish terracotta floor — Rochester Hills"><img src="images/chief.jpg"
             onerror="this.style.background='linear-gradient(160deg,#C0622F,#8A3A18)';this.removeAttribute('src')"
             alt="Chef Kitchen">
           <div class="gal-overlay">
             <div class="gal-label">Kitchen</div>
             <div class="gal-title">Chef's Kitchen Tile</div>
-            <div class="gal-sub">Spanish terracotta floor — Rochester Hills</div>
+            <div class="gal-sub">Rochester Hills, MI</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="commercial" data-title="Restaurant Dining Floor"
-          data-sub="Polished concrete-look porcelain — Royal Oak">
-          <img src="images/restaurant.jpg"
+          data-sub="Concrete-look porcelain — Royal Oak"><img src="images/restaurant.jpg"
             onerror="this.style.background='linear-gradient(160deg,#2E2820,#1A1410)';this.removeAttribute('src')"
             alt="Restaurant Floor">
           <div class="gal-overlay">
             <div class="gal-label">Commercial</div>
             <div class="gal-title">Restaurant Dining Floor</div>
-            <div class="gal-sub">Concrete-look porcelain — Royal Oak</div>
+            <div class="gal-sub">Royal Oak, MI</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="stone" data-title="Granite Entry Hall"
-          data-sub="Black granite with white marble insets — Saline">
-          <img src="images/Granite.jpg"
+          data-sub="Black granite with marble insets — Saline"><img src="images/Granite.jpg"
             onerror="this.style.background='linear-gradient(160deg,#1E1A16,#0E0C0A)';this.removeAttribute('src')"
             alt="Granite Entry">
           <div class="gal-overlay">
             <div class="gal-label">Granite</div>
             <div class="gal-title">Granite Entry Hall</div>
-            <div class="gal-sub">Black granite with marble insets — Saline</div>
+            <div class="gal-sub">Saline, MI</div>
           </div>
         </div>
-
         <div class="gal-item featured" data-cat="outdoor" data-title="Luxury Terrace"
-          data-sub="Outdoor living masterpiece — Bloomfield Hills">
-          <span class="gal-corner">Featured</span>
-          <img src="images/Terrace.jpg"
+          data-sub="Outdoor living masterpiece — Bloomfield Hills"><span class="gal-corner">Featured</span><img
+            src="images/Terrace.jpg"
             onerror="this.style.background='linear-gradient(160deg,#7A8C6E,#3A4C2E)';this.removeAttribute('src')"
             alt="Luxury Terrace">
           <div class="gal-overlay">
             <div class="gal-label">Outdoor</div>
             <div class="gal-title">Luxury Terrace</div>
-            <div class="gal-sub">Outdoor living masterpiece — Bloomfield Hills</div>
+            <div class="gal-sub">Bloomfield Hills, MI</div>
           </div>
         </div>
-
         <div class="gal-item" data-cat="bathroom" data-title="Marble Vanity Wall"
-          data-sub="Carrara marble vanity surround — Sterling Heights">
-          <img src="images/image42.jpg"
+          data-sub="Carrara marble vanity — Sterling Heights"><img src="images/image42.jpg"
             onerror="this.style.background='linear-gradient(160deg,#E8E0D5,#C8B89A)';this.removeAttribute('src')"
             alt="Marble Vanity">
           <div class="gal-overlay">
             <div class="gal-label">Bathroom</div>
             <div class="gal-title">Marble Vanity Wall</div>
-            <div class="gal-sub">Carrara marble vanity — Sterling Heights</div>
+            <div class="gal-sub">Sterling Heights, MI</div>
           </div>
         </div>
-
-      </div><!-- /gallery-masonry -->
-
+      </div>
       <div class="gallery-stats rsl rsl-d3">
         <div class="stat-item">
           <div class="stat-number" data-target="1400">0+</div>
@@ -3856,12 +5341,12 @@
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg></div>
           <p class="test-quote">They redid our entire master bathroom — shower, floor, the works. The attention to
-            detail was incredible. Every tile perfectly aligned, grout lines are immaculate. Worth every penny.</p>
+            detail was incredible. Every tile perfectly aligned.</p>
           <div class="test-author">
             <div class="test-avatar">JM</div>
             <div>
               <div class="test-name">Jennifer M.</div>
-              <div class="test-loc">Grosse Pointe, MI — Kitchen & Bath Remodel</div>
+              <div class="test-loc">Grosse Pointe, MI</div>
             </div>
           </div>
         </div>
@@ -3881,14 +5366,13 @@
             </svg><svg viewBox="0 0 24 24">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg></div>
-          <p class="test-quote">We hired them for our restaurant renovation — 2,200 sq ft of tile on a tight schedule.
-            They finished two days early, cleaned up immaculately, and the floor looks stunning. Hired again
-            immediately.</p>
+          <p class="test-quote">We hired them for our restaurant renovation — 2,200 sq ft on a tight schedule. They
+            finished two days early. The floor looks stunning.</p>
           <div class="test-author">
             <div class="test-avatar">RP</div>
             <div>
               <div class="test-name">Robert P.</div>
-              <div class="test-loc">Detroit, MI — Commercial Restaurant Floor</div>
+              <div class="test-loc">Detroit, MI — Commercial</div>
             </div>
           </div>
         </div>
@@ -3908,14 +5392,13 @@
             </svg><svg viewBox="0 0 24 24">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg></div>
-          <p class="test-quote">The travertine patio they installed has been through two Michigan winters and still
-            looks brand new. Best investment we made in our backyard. Professional, tidy, and genuinely passionate about
-            the craft.</p>
+          <p class="test-quote">The travertine patio has been through two Michigan winters and still looks brand new.
+            Professional, tidy, and passionate about the craft.</p>
           <div class="test-author">
             <div class="test-avatar">SK</div>
             <div>
               <div class="test-name">Sandra K.</div>
-              <div class="test-loc">Northville, MI — Outdoor Patio & Pool Deck</div>
+              <div class="test-loc">Northville, MI — Outdoor</div>
             </div>
           </div>
         </div>
@@ -3928,8 +5411,7 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-visual rsl-left">
-          <div class="about-img">
-            <img src="images/image26.jpg"
+          <div class="about-img"><img src="images/image26.jpg"
               onerror="this.style.background='linear-gradient(160deg,#8B7355,#3D2E22)';this.removeAttribute('src')"
               alt="Our team">
             <div class="about-img-overlay">
@@ -3953,8 +5435,7 @@
             simple belief: tile work is an art form — not a commodity. Over 18 years, we've grown into a team of
             certified installers who share that same obsession with quality.</p>
           <p class="about-body">We're based in the Detroit Metro Area and serve residential and commercial clients
-            across Michigan. Every project — from a single bathroom to a full commercial renovation — gets our full
-            attention and our name on it.</p>
+            across Michigan.</p>
           <div class="about-features">
             <div class="about-feature">
               <div class="af-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -3962,7 +5443,7 @@
                 </svg></div>
               <div class="af-text">
                 <h5>Michigan Licensed & Bonded</h5>
-                <p>Fully licensed for all residential and commercial tile and masonry work in Michigan.</p>
+                <p>Fully licensed for all residential and commercial work in Michigan.</p>
               </div>
             </div>
             <div class="about-feature">
@@ -3972,7 +5453,7 @@
                 </svg></div>
               <div class="af-text">
                 <h5>TCNA Certified Methods</h5>
-                <p>Our installations follow TCNA standards — the gold standard in the tile industry.</p>
+                <p>Our installations follow TCNA standards — the gold standard in tile.</p>
               </div>
             </div>
             <div class="about-feature">
@@ -4018,6 +5499,33 @@
       </div>
     </div>
   </div>
+
+  <!-- PAYMENT CTA SECTION -->
+  <section class="payment-section" id="payment">
+    <div class="container">
+      <div class="payment-cta-inner rsl">
+        <div class="tag" style="margin-bottom:20px">Order & Pay Online</div>
+        <h2 class="sec-title">Select materials.<br><em>Pay securely.</em></h2>
+        <p>Order your tile and stone materials directly online. Choose your material, enter square footage and quantity,
+          then pay securely with card or ACH — all in one place.</p>
+        <button class="open-pay-btn" onclick="openPaymentModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18">
+            <rect x="1" y="4" width="22" height="16" rx="2" />
+            <line x1="1" y1="10" x2="23" y2="10" />
+          </svg>
+          Open Order & Pay Portal
+        </button>
+        <div class="pay-accepted">
+          <span style="font-size:11px;color:var(--muted);font-weight:600;margin-right:4px">Accepted:</span>
+          <div class="pay-chip visa">VISA</div>
+          <div class="pay-chip mc">MC</div>
+          <div class="pay-chip amex">AMEX</div>
+          <div class="pay-chip disc">DISC</div>
+          <div class="pay-chip ach">ACH / eCheck</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- CONTACT -->
   <section class="cta-section" id="contact">
@@ -4139,15 +5647,12 @@
                 <line x1="2" y1="12" x2="22" y2="12" />
                 <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
               </svg></a>
-            <a class="social-btn" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-              </svg></a>
           </div>
         </div>
         <div>
           <div class="footer-col-title">Services</div>
           <ul class="footer-links-list">
-            <li><a href="#">Kitchen Tile Installation</a></li>
+            <li><a href="#">Kitchen Tile</a></li>
             <li><a href="#">Bathroom & Shower</a></li>
             <li><a href="#">Natural Stone & Marble</a></li>
             <li><a href="#">Floor Tile</a></li>
@@ -4158,12 +5663,17 @@
         <div>
           <div class="footer-col-title">Materials</div>
           <ul class="footer-links-list">
-            <li><a href="#">Marble & Granite</a></li>
-            <li><a href="#">Porcelain Tile</a></li>
-            <li><a href="#">Travertine & Slate</a></li>
-            <li><a href="#">Mosaic & Glass</a></li>
-            <li><a href="#">Limestone</a></li>
-            <li><a href="#">Quartzite</a></li>
+            <li><a href="#" onclick="event.preventDefault();openModalWithMaterial('Marble',18)">Marble — $18/sqft</a>
+            </li>
+            <li><a href="#" onclick="event.preventDefault();openModalWithMaterial('Porcelain',8)">Porcelain —
+                $8/sqft</a></li>
+            <li><a href="#" onclick="event.preventDefault();openModalWithMaterial('Travertine',14)">Travertine —
+                $14/sqft</a></li>
+            <li><a href="#" onclick="event.preventDefault();openModalWithMaterial('Slate',12)">Slate — $12/sqft</a></li>
+            <li><a href="#" onclick="event.preventDefault();openModalWithMaterial('Limestone',11)">Limestone —
+                $11/sqft</a></li>
+            <li><a href="#" onclick="event.preventDefault();openModalWithMaterial('Quartzite',22)">Quartzite —
+                $22/sqft</a></li>
           </ul>
         </div>
         <div>
@@ -4173,7 +5683,7 @@
             <li><a href="#">Our Process</a></li>
             <li><a href="#">Portfolio</a></li>
             <li><a href="#">Reviews</a></li>
-            <li><a href="#">Certifications</a></li>
+            <li><a href="#" onclick="event.preventDefault();openPaymentModal()">Order & Pay</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
         </div>
@@ -4197,55 +5707,29 @@
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursor-ring');
     let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-    });
-    function animateRing() {
-      rx += (mx - rx) * .12; ry += (my - ry) * .12;
-      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-      requestAnimationFrame(animateRing);
-    }
-    animateRing();
-    document.querySelectorAll('a,button,.svc-card,.mat-card,.gal-item,.trust-badge').forEach(el => {
-      el.addEventListener('mouseenter', () => { cursor.style.width = '20px'; cursor.style.height = '20px'; ring.style.width = '60px'; ring.style.height = '60px'; ring.style.opacity = '.4' });
-      el.addEventListener('mouseleave', () => { cursor.style.width = '12px'; cursor.style.height = '12px'; ring.style.width = '40px'; ring.style.height = '40px'; ring.style.opacity = '.6' });
-    });
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
+    (function animateRing() { rx += (mx - rx) * .12; ry += (my - ry) * .12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animateRing); })();
 
     // ---- STICKY NAV ----
-    const nav = document.getElementById('mainNav');
-    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+    window.addEventListener('scroll', () => document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20));
 
     // ---- SCROLL REVEAL ----
-    const allReveal = document.querySelectorAll('.rsl,.rsl-left,.rsl-right,.rsl-scale');
-    const revealObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on') });
-    }, { threshold: .07, rootMargin: '0px 0px -40px 0px' });
-    allReveal.forEach(el => revealObs.observe(el));
+    const revealObs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }), { threshold: .07, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.rsl,.rsl-left,.rsl-right').forEach(el => revealObs.observe(el));
 
-    // ---- GALLERY REVEAL ----
+    // ---- GALLERY ----
     const galItems = document.querySelectorAll('.gal-item');
-    const galObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') });
-    }, { threshold: .05, rootMargin: '0px 0px -30px 0px' });
+    const galObs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: .05 });
     galItems.forEach(el => galObs.observe(el));
 
-    // ---- FILTER BUTTONS ----
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const f = btn.dataset.filter;
         galItems.forEach(item => {
-          const cat = item.dataset.cat;
-          if (f === 'all' || cat === f) {
-            item.style.display = '';
-            setTimeout(() => item.classList.add('visible'), 30);
-          } else {
-            item.classList.remove('visible');
-            item.style.display = 'none';
-          }
+          if (f === 'all' || item.dataset.cat === f) { item.style.display = ''; setTimeout(() => item.classList.add('visible'), 30); }
+          else { item.classList.remove('visible'); item.style.display = 'none'; }
         });
       });
     });
@@ -4253,106 +5737,288 @@
     // ---- LIGHTBOX ----
     const lightbox = document.getElementById('lightbox');
     const lbImg = document.getElementById('lbImg');
-    const lbTitle = document.getElementById('lbTitle');
-    const lbSub = document.getElementById('lbSub');
     let currentIdx = 0;
     const galData = [];
-
     galItems.forEach((item, i) => {
       const img = item.querySelector('img');
-      const title = item.dataset.title || '';
-      const sub = item.dataset.sub || '';
-      galData.push({ src: img ? img.src : '', title, sub });
-      item.addEventListener('click', () => {
-        currentIdx = i;
-        openLightbox(i);
-      });
+      galData.push({ src: img ? img.src : '', title: item.dataset.title || '', sub: item.dataset.sub || '' });
+      item.addEventListener('click', () => { currentIdx = i; openLb(i); });
     });
-
-    function openLightbox(i) {
-      const d = galData[i];
-      lbImg.src = d.src;
-      lbTitle.textContent = d.title;
-      lbSub.textContent = d.sub;
-      lightbox.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    document.getElementById('lbClose').addEventListener('click', () => {
-      lightbox.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
-    });
-    document.getElementById('lbPrev').addEventListener('click', () => {
-      currentIdx = (currentIdx - 1 + galData.length) % galData.length;
-      openLightbox(currentIdx);
-    });
-    document.getElementById('lbNext').addEventListener('click', () => {
-      currentIdx = (currentIdx + 1) % galData.length;
-      openLightbox(currentIdx);
-    });
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox.classList.contains('open')) return;
-      if (e.key === 'ArrowLeft') { currentIdx = (currentIdx - 1 + galData.length) % galData.length; openLightbox(currentIdx); }
-      if (e.key === 'ArrowRight') { currentIdx = (currentIdx + 1) % galData.length; openLightbox(currentIdx); }
-      if (e.key === 'Escape') { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
-    });
-
-    // ---- FILTER + LAYOUT FIX (re-observe after filter) ----
-    // When filter hides items, grid-row gaps remain; fix by resetting grid on filter
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        setTimeout(() => {
-          galItems.forEach(item => {
-            if (item.style.display === 'none') return;
-            item.classList.add('visible');
-          });
-        }, 100);
-      });
-    });
+    function openLb(i) { lbImg.src = galData[i].src; document.getElementById('lbTitle').textContent = galData[i].title; document.getElementById('lbSub').textContent = galData[i].sub; lightbox.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    document.getElementById('lbClose').addEventListener('click', () => { lightbox.classList.remove('open'); document.body.style.overflow = ''; });
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) { lightbox.classList.remove('open'); document.body.style.overflow = ''; } });
+    document.getElementById('lbPrev').addEventListener('click', () => { currentIdx = (currentIdx - 1 + galData.length) % galData.length; openLb(currentIdx); });
+    document.getElementById('lbNext').addEventListener('click', () => { currentIdx = (currentIdx + 1) % galData.length; openLb(currentIdx); });
+    document.addEventListener('keydown', e => { if (!lightbox.classList.contains('open')) return; if (e.key === 'ArrowLeft') { currentIdx = (currentIdx - 1 + galData.length) % galData.length; openLb(currentIdx); } if (e.key === 'ArrowRight') { currentIdx = (currentIdx + 1) % galData.length; openLb(currentIdx); } if (e.key === 'Escape') { lightbox.classList.remove('open'); document.body.style.overflow = ''; } });
 
     // ---- HERO PARALLAX ----
-    window.addEventListener('scroll', () => {
-      const sy = window.scrollY;
-      document.querySelectorAll('.hero-tile img').forEach((img, i) => {
-        img.style.transform = `translateY(${sy * (0.05 + i * .015)}px) scale(1.15)`;
-      });
-    });
-
-    // ---- 3D TILT ON GALLERY ----
-    galItems.forEach(item => {
-      item.addEventListener('mousemove', e => {
-        const rect = item.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - .5;
-        const y = (e.clientY - rect.top) / rect.height - .5;
-        item.style.transform = `translateY(-4px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg) scale(1.02)`;
-      });
-      item.addEventListener('mouseleave', () => item.style.transform = '');
-    });
+    window.addEventListener('scroll', () => { const sy = window.scrollY; document.querySelectorAll('.hero-tile img').forEach((img, i) => { img.style.transform = `translateY(${sy * (0.05 + i * .015)}px) scale(1.15)`; }); });
 
     // ---- COUNTER ANIMATION ----
-    const counters = document.querySelectorAll('.stat-number[data-target]');
-    const cObs = new IntersectionObserver((entries) => {
+    const cObs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (!e.isIntersecting) return;
-        const el = e.target;
-        const target = parseInt(el.dataset.target);
+        const el = e.target, target = parseInt(el.dataset.target);
         let start = null;
-        const step = (ts) => {
-          if (!start) start = ts;
-          const prog = Math.min((ts - start) / 2000, 1);
-          const eased = 1 - Math.pow(1 - prog, 3);
-          el.textContent = Math.floor(eased * target).toLocaleString() + '+';
-          if (prog < 1) requestAnimationFrame(step);
-          else el.textContent = target.toLocaleString() + '+';
-        };
-        requestAnimationFrame(step);
-        cObs.unobserve(el);
+        const step = (ts) => { if (!start) start = ts; const prog = Math.min((ts - start) / 2000, 1); const eased = 1 - Math.pow(1 - prog, 3); el.textContent = Math.floor(eased * target).toLocaleString() + '+'; if (prog < 1) requestAnimationFrame(step); else el.textContent = target.toLocaleString() + '+'; };
+        requestAnimationFrame(step); cObs.unobserve(el);
       });
     }, { threshold: .5 });
-    counters.forEach(c => cObs.observe(c));
+    document.querySelectorAll('.stat-number[data-target]').forEach(c => cObs.observe(c));
+
+    // ============================================================
+    // PAYMENT MODAL LOGIC
+    // ============================================================
+    let pm_mat = null, pm_price = 0, pm_payTab = 'card', pm_currentStep = 1;
+
+    function openPaymentModal(matName, matPrice) {
+      const modal = document.getElementById('paymentModal');
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      pmResetToStep(1);
+      if (matName) {
+        // Pre-select material
+        document.querySelectorAll('.pm-mat-item').forEach(item => {
+          item.classList.remove('selected');
+          if (item.dataset.mat === matName) { item.classList.add('selected'); pm_mat = matName; pm_price = matPrice; }
+        });
+        pmUpdateTotal();
+      }
+    }
+
+    function openModalWithMaterial(name, price) {
+      openPaymentModal(name, price);
+    }
+
+    function closePaymentModal() {
+      document.getElementById('paymentModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function pmResetToStep(s) {
+      pm_currentStep = s;
+      document.querySelectorAll('.pm-panel').forEach(p => p.classList.remove('active'));
+      const panel = document.getElementById('pm-panel-' + s);
+      if (panel) panel.classList.add('active');
+      // Update step indicators
+      [1, 2, 3].forEach(n => {
+        const stepEl = document.getElementById('pms-' + n);
+        const lineEl = document.getElementById('pmsl-' + n);
+        if (!stepEl) return;
+        stepEl.classList.remove('active', 'done');
+        if (n < s) { stepEl.classList.add('done'); if (lineEl) lineEl.classList.add('done'); }
+        else if (n === s) { stepEl.classList.add('active'); if (lineEl) lineEl.classList.remove('done'); }
+        else { if (lineEl) lineEl.classList.remove('done'); }
+      });
+    }
+
+    function pmSelectMaterial(el) {
+      document.querySelectorAll('.pm-mat-item').forEach(i => i.classList.remove('selected'));
+      el.classList.add('selected');
+      pm_mat = el.dataset.mat;
+      pm_price = parseFloat(el.dataset.price);
+      pmUpdateTotal();
+    }
+
+    function pmChangeQty(field, delta) {
+      const inp = document.getElementById(field === 'sqft' ? 'pmSqft' : 'pmQty');
+      const min = field === 'sqft' ? 1 : 1;
+      inp.value = Math.max(min, (parseInt(inp.value) || 0) + delta);
+      pmUpdateTotal();
+    }
+
+    function pmUpdateTotal() {
+      const sqft = parseInt(document.getElementById('pmSqft').value) || 0;
+      const qty = parseInt(document.getElementById('pmQty').value) || 1;
+      const total = pm_price * sqft * qty;
+      document.getElementById('pmSumMat').textContent = pm_mat || '—';
+      document.getElementById('pmSumCoverage').textContent = sqft > 0 ? `${sqft * qty} sq ft total (${sqft} × ${qty})` : '— sq ft';
+      document.getElementById('pmSumUnit').textContent = pm_price > 0 ? `$${pm_price.toFixed(2)} / sqft` : '—';
+      document.getElementById('pmSumTotal').textContent = total > 0 ? `$${total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '$0.00';
+    }
+
+    function pmGoToStep(step) {
+      // Validate current step
+      if (step === 2 && pm_currentStep === 1) {
+        if (!pmValidateBilling()) return;
+      }
+      if (step === 3 && pm_currentStep === 2) {
+        if (!pmValidatePayment()) return;
+      }
+      if (step === 3) { pmBuildReview(); }
+      pmResetToStep(step);
+    }
+
+    function pmValidateBilling() {
+      const fields = ['pmFirstName', 'pmLastName', 'pmEmail', 'pmPhone', 'pmAddress', 'pmCity', 'pmState', 'pmZip'];
+      let ok = true;
+      fields.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) { el.classList.add('has-error'); ok = false; } else el.classList.remove('has-error');
+      });
+      if (!ok) { showPmError('Please fill in all required billing fields.'); return false; }
+      if (!pm_mat) { showPmError('Please select a material from the left panel.'); return false; }
+      const sqft = parseInt(document.getElementById('pmSqft').value) || 0;
+      if (sqft < 1) { showPmError('Please enter a valid square footage.'); return false; }
+      return true;
+    }
+
+    function pmValidatePayment() {
+      if (pm_payTab === 'card') {
+        const card = document.getElementById('pmCardNum').value.replace(/\s/g, '');
+        const name = document.getElementById('pmCardName').value.trim();
+        const mm = document.getElementById('pmExpMM').value;
+        const yy = document.getElementById('pmExpYY').value;
+        const cvv = document.getElementById('pmCvv').value;
+        if (!name || card.length < 15 || !mm || !yy || cvv.length < 3) {
+          showPmError('Please complete all card payment fields.');
+          return false;
+        }
+      } else {
+        const routing = document.getElementById('pmRouting').value.trim();
+        const account = document.getElementById('pmAccount').value.trim();
+        const type = document.getElementById('pmAccountType').value;
+        if (routing.length < 9 || !account || !type) {
+          showPmError('Please complete all ACH bank account fields.');
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function pmBuildReview() {
+      const sqft = parseInt(document.getElementById('pmSqft').value) || 0;
+      const qty = parseInt(document.getElementById('pmQty').value) || 1;
+      const total = pm_price * sqft * qty;
+      const totalStr = `$${total.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+
+      // Order review
+      document.getElementById('pmReviewOrder').innerHTML = `
+      <div class="pm-review-row"><span class="pm-review-label">Material</span><span class="pm-review-val">${pm_mat}</span></div>
+      <div class="pm-review-row"><span class="pm-review-label">Square Footage</span><span class="pm-review-val">${sqft} sqft</span></div>
+      <div class="pm-review-row"><span class="pm-review-label">Quantity</span><span class="pm-review-val">${qty} pack(s)</span></div>
+      <div class="pm-review-row"><span class="pm-review-label">Unit Price</span><span class="pm-review-val">$${pm_price.toFixed(2)}/sqft</span></div>
+      <div class="pm-review-row" style="font-weight:700"><span class="pm-review-label">Subtotal</span><span class="pm-review-val" style="color:var(--terra)">${totalStr}</span></div>`;
+
+      // Billing review
+      const inv = document.getElementById('pmInvoice').value;
+      document.getElementById('pmReviewBilling').innerHTML = `
+      <div class="pm-review-row"><span class="pm-review-label">Name</span><span class="pm-review-val">${document.getElementById('pmFirstName').value} ${document.getElementById('pmLastName').value}</span></div>
+      <div class="pm-review-row"><span class="pm-review-label">Email</span><span class="pm-review-val">${document.getElementById('pmEmail').value}</span></div>
+      <div class="pm-review-row"><span class="pm-review-label">Phone</span><span class="pm-review-val">${document.getElementById('pmPhone').value}</span></div>
+      <div class="pm-review-row"><span class="pm-review-label">Address</span><span class="pm-review-val">${document.getElementById('pmAddress').value}, ${document.getElementById('pmCity').value}, ${document.getElementById('pmState').value} ${document.getElementById('pmZip').value}</span></div>
+      ${inv ? `<div class="pm-review-row"><span class="pm-review-label">Invoice #</span><span class="pm-review-val">${inv}</span></div>` : ''}`;
+
+      // Payment review
+      let paymentDetail;
+      if (pm_payTab === 'card') {
+        const raw = document.getElementById('pmCardNum').value.replace(/\s/g, '');
+        const last4 = raw.slice(-4);
+        const mm = document.getElementById('pmExpMM').value;
+        const yy = document.getElementById('pmExpYY').value;
+        paymentDetail = `<div class="pm-review-row"><span class="pm-review-label">Method</span><span class="pm-review-val">Credit / Debit Card</span></div>
+        <div class="pm-review-row"><span class="pm-review-label">Card</span><span class="pm-review-val">•••• •••• •••• ${last4}</span></div>
+        <div class="pm-review-row"><span class="pm-review-label">Expiry</span><span class="pm-review-val">${mm} / ${yy}</span></div>`;
+      } else {
+        const routing = document.getElementById('pmRouting').value;
+        const type = document.getElementById('pmAccountType').value;
+        paymentDetail = `<div class="pm-review-row"><span class="pm-review-label">Method</span><span class="pm-review-val">ACH / eCheck</span></div>
+        <div class="pm-review-row"><span class="pm-review-label">Routing</span><span class="pm-review-val">•••••${routing.slice(-4)}</span></div>
+        <div class="pm-review-row"><span class="pm-review-label">Account Type</span><span class="pm-review-val">${type}</span></div>`;
+      }
+      document.getElementById('pmReviewPayment').innerHTML = paymentDetail;
+
+      // Total bar & submit button
+      document.getElementById('pmReviewTotal').textContent = totalStr;
+      document.getElementById('pmSubmitTotal').textContent = '— ' + totalStr;
+    }
+
+    function pmSubmit() {
+      const btn = document.getElementById('pmSubmitBtn');
+      const fb = document.getElementById('pmFeedback');
+      btn.classList.add('loading'); btn.disabled = true;
+
+      setTimeout(() => {
+        btn.classList.remove('loading'); btn.disabled = false;
+        const sqft = parseInt(document.getElementById('pmSqft').value) || 0;
+        const qty = parseInt(document.getElementById('pmQty').value) || 1;
+        const total = pm_price * sqft * qty;
+        const email = document.getElementById('pmEmail').value;
+        const totalStr = `$${total.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+
+        document.getElementById('pmSuccessMsg').textContent =
+          `Your order of ${sqft * qty} sq ft of ${pm_mat} (${totalStr}) has been received! A confirmation will be sent to ${email} within 24 hours. Our team will contact you to schedule delivery.`;
+
+        // Show success panel
+        document.querySelectorAll('.pm-panel').forEach(p => p.classList.remove('active'));
+        document.getElementById('pm-panel-success').classList.add('active');
+        [1, 2, 3].forEach(n => {
+          const s = document.getElementById('pms-' + n);
+          if (s) { s.classList.remove('active'); s.classList.add('done'); }
+          const l = document.getElementById('pmsl-' + n);
+          if (l) l.classList.add('done');
+        });
+
+        // Reset form data after 2s delay in background
+        setTimeout(() => {
+          pm_mat = null; pm_price = 0;
+          document.querySelectorAll('.pm-mat-item').forEach(i => i.classList.remove('selected'));
+          document.getElementById('pmSqft').value = 50;
+          document.getElementById('pmQty').value = 1;
+          ['pmFirstName', 'pmLastName', 'pmEmail', 'pmPhone', 'pmAddress', 'pmCity', 'pmZip', 'pmInvoice', 'pmCardNum', 'pmCardName', 'pmCvv', 'pmRouting', 'pmAccount'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+          pmUpdateTotal();
+        }, 2000);
+      }, 2000);
+    }
+
+    function showPmError(msg) {
+      const fb = document.getElementById('pmFeedback');
+      if (!fb) return;
+      fb.textContent = '⚠ ' + msg;
+      fb.className = 'pm-feedback error show';
+      setTimeout(() => fb.classList.remove('show'), 5000);
+    }
+
+    function pmSwitchPayTab(tab, el) {
+      pm_payTab = tab;
+      document.querySelectorAll('.pm-card-tab').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      document.querySelectorAll('.pm-pay-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('pm-pay-' + tab).classList.add('active');
+      // Show/hide accepted cards
+      document.getElementById('pmAcceptedRow').style.display = tab === 'card' ? 'flex' : 'none';
+    }
+
+    function pmFormatCard(inp) {
+      let v = inp.value.replace(/\D/g, '').substring(0, 16);
+      inp.value = v.replace(/(.{4})/g, '$1 ').trim();
+      // Detect card brand
+      const brand = document.getElementById('pmCardBrand');
+      const num = v;
+      let color = 'var(--muted)';
+      if (/^4/.test(num)) color = '#1a1f71';
+      else if (/^5[1-5]/.test(num)) color = '#eb001b';
+      else if (/^3[47]/.test(num)) color = '#2e77bc';
+      else if (/^6(?:011|5)/.test(num)) color = '#e65c00';
+      brand.querySelector('svg').style.color = color;
+      brand.querySelector('svg').style.opacity = num.length > 0 ? '1' : '.35';
+    }
+
+    // Keyboard close
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && document.getElementById('paymentModal').classList.contains('open')) closePaymentModal();
+    });
+
+    // Contact form
+    document.getElementById('submitBtn').addEventListener('click', function () {
+      this.classList.add('loading'); this.disabled = true;
+      setTimeout(() => {
+        this.classList.remove('loading'); this.disabled = false;
+        const fb = document.getElementById('formFeedback');
+        fb.className = 'form-feedback success show';
+        fb.textContent = '✓ Your request has been received! We\'ll contact you within 24 hours.';
+      }, 1800);
+    });
   </script>
 </body>
 
