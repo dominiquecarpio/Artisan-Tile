@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Artisan Tile & Stone Specialists LLC</title>
+  <meta name="description" content="Artisan Tile & Stone Specialists LLC in Saint Petersburg, Florida offers custom tile, stone, bathroom, kitchen, and natural stone craftsmanship.">
+  <title>Artisan Tile & Stone Specialists LLC | Saint Petersburg, FL</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap"
     rel="stylesheet">
@@ -65,33 +66,7 @@
     }
 
     * {
-      cursor: none !important
-    }
-
-    #cursor {
-      position: fixed;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--terra);
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform .1s, width .3s var(--spring), height .3s var(--spring), background .3s;
-      mix-blend-mode: multiply
-    }
-
-    #cursor-ring {
-      position: fixed;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1.5px solid var(--terra);
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: transform .15s var(--ease), width .4s var(--spring), height .4s var(--spring), opacity .3s;
-      opacity: .6
+      cursor: auto !important
     }
 
     ::-webkit-scrollbar {
@@ -460,6 +435,47 @@
       width: 14px;
       height: 14px;
       color: var(--terra)
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--off);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      margin-left: auto;
+      margin-right: 8px;
+      transition: border-color .2s, transform .2s
+    }
+
+    .nav-toggle:hover {
+      border-color: var(--terra)
+    }
+
+    .nav-toggle span {
+      width: 18px;
+      height: 2px;
+      background: var(--charcoal);
+      border-radius: 99px;
+      display: block
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg)
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg)
     }
 
     .nav-right {
@@ -3983,6 +3999,19 @@
         padding: 0 32px
       }
 
+      .topbar,
+      .nav-inner {
+        padding: 9px 32px
+      }
+
+      .nav-menu {
+        gap: 8px
+      }
+
+      .nav-menu>li>a {
+        padding: 0 10px
+      }
+
       .hero {
         grid-template-columns: 1fr;
         min-height: auto
@@ -4046,11 +4075,6 @@
         grid-template-columns: repeat(2, 1fr)
       }
 
-      .topbar,
-      .nav-inner {
-        padding: 9px 32px
-      }
-
       .pm-container {
         grid-template-columns: 1fr;
         max-width: 540px
@@ -4061,7 +4085,185 @@
       }
     }
 
+    @media(max-width:920px) {
+      .topbar {
+        display: none
+      }
+
+      .nav-toggle {
+        display: inline-flex
+      }
+
+      .nav-right {
+        margin-left: auto
+      }
+
+      .nav-phone {
+        display: none
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 16px;
+        right: 16px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        background: rgba(255, 255, 255, .98);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: 0 28px 60px rgba(30, 26, 22, .12);
+        padding: 10px;
+      }
+
+      .nav-menu.open {
+        display: flex
+      }
+
+      .nav-menu>li {
+        width: 100%
+      }
+
+      .nav-menu>li>a {
+        height: auto;
+        padding: 14px 16px;
+        border-radius: 10px
+      }
+
+      .nav-menu>li:hover .dropdown,
+      .nav-menu>li:focus-within .dropdown {
+        position: static;
+        opacity: 1;
+        pointer-events: all;
+        transform: none;
+        min-width: 0;
+        box-shadow: none;
+        border: none;
+        border-top: 1px solid var(--border);
+        margin-top: 8px;
+        display: block
+      }
+
+      .dropdown {
+        padding: 6px 0
+      }
+
+      .hero-left {
+        padding: 62px 28px 54px
+      }
+
+      .hero-h1 {
+        font-size: clamp(2.9rem, 12vw, 4.5rem)
+      }
+
+      .hero-stats {
+        flex-wrap: wrap;
+        gap: 22px 0
+      }
+
+      .hero-stat {
+        margin-right: 20px;
+        padding-right: 20px
+      }
+
+      .intro,
+      .services,
+      .materials,
+      .process {
+        padding: 90px 0
+      }
+
+      .services-grid,
+      .services-mini,
+      .mat-grid,
+      .footer-grid,
+      .contact-row {
+        grid-template-columns: 1fr
+      }
+
+      .services-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px
+      }
+
+      .materials-inner {
+        gap: 40px
+      }
+    }
+
     @media(max-width:640px) {
+      .container {
+        padding: 0 20px
+      }
+
+      .nav-inner {
+        padding: 0 20px
+      }
+
+      .logo-words .l1 {
+        font-size: 14px
+      }
+
+      .logo-words .l2 {
+        letter-spacing: .12em
+      }
+
+      .btn-quote {
+        display: none
+      }
+
+      .hero-btns {
+        flex-direction: column;
+        align-items: stretch
+      }
+
+      .btn-primary-hero,
+      .btn-outline-hero {
+        width: 100%;
+        text-align: center
+      }
+
+      .hero-stat {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, .1);
+        padding-bottom: 18px;
+        margin-bottom: 8px
+      }
+
+      .hero-stat:last-child {
+        border-bottom: none
+      }
+
+      .trust-badges {
+        grid-template-columns: 1fr
+      }
+
+      .cta-left,
+      .contact-form,
+      .form-row,
+      .pm-right {
+        padding-left: 20px;
+        padding-right: 20px
+      }
+
+      .form-row {
+        grid-template-columns: 1fr
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px
+      }
+
+      .footer-bottom-links {
+        flex-wrap: wrap;
+        gap: 12px 18px
+      }
+
       .pm-right {
         padding: 28px 24px
       }
@@ -4087,9 +4289,6 @@
     </div>
     <div class="loader-text">Loading Craftsmanship...</div>
   </div>
-
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
 
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox">
@@ -4528,12 +4727,11 @@
   </div><!-- /pm-overlay -->
 
   <div class="topbar">
-    <span>🏆 <strong>A+ Rated</strong> — Better Business Bureau &nbsp;|&nbsp; Licensed, Bonded & Insured in
-      Michigan</span>
+    <span>🏆 <strong>Established 1999</strong> — Quality that withstands the test of time</span>
     <div class="topbar-links">
-      <a href="tel:+13135550000">(313) 555-0000</a>
-      <a href="mailto:info@artisantile.com">info@artisantile.com</a>
-      <a href="#">Mon–Sat: 7am–6pm</a>
+      <a href="tel:+17277411533">(727) 741-1533</a>
+      <a href="mailto:artisantileandstone01@gmail.com">artisantileandstone01@gmail.com</a>
+      <a href="https://www.facebook.com/ArtisanTileStonespecialistLLC" target="_blank" rel="noreferrer">Saint Petersburg, FL</a>
     </div>
   </div>
 
@@ -4556,7 +4754,12 @@
           <span class="l2">Specialists LLC</span>
         </div>
       </a>
-      <ul class="nav-menu">
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
         <li>
           <a href="#services">Services <svg viewBox="0 0 10 6" fill="none" width="10">
               <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
@@ -4640,11 +4843,11 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-right">
-        <a class="nav-phone" href="tel:+13135550000">
+        <a class="nav-phone" href="tel:+17277411533">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="15">
             <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 10.5" />
           </svg>
-          (313) 555-0000
+          (727) 741-1533
         </a>
         <button class="btn-quote" onclick="openPaymentModal()">Order & Pay</button>
       </div>
@@ -4654,31 +4857,30 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
-      <div class="tag hero-tag">Michigan's Premier Tile Craftsmen</div>
+      <div class="tag hero-tag">Page • Home Improvement</div>
       <h1 class="hero-h1">
-        <span class="line-wrap"><span class="line-inner" style="animation-delay:.3s">Surfaces That</span></span>
-        <span class="line-wrap"><em><span class="line-inner" style="animation-delay:.5s">Speak for</span></em></span>
+        <span class="line-wrap"><span class="line-inner" style="animation-delay:.3s">Artisan Tile &amp; Stone</span></span>
+        <span class="line-wrap"><em><span class="line-inner" style="animation-delay:.5s">Specialists LLC</span></em></span>
         <span class="line-wrap"><span class="accent"><span class="line-inner"
-              style="animation-delay:.7s">Themselves.</span></span></span>
+              style="animation-delay:.7s">224 followers • 1 following</span></span></span>
       </h1>
-      <p class="hero-sub">Artisan Tile & Stone Specialists LLC brings 18+ years of precision craftsmanship to every
-        kitchen, bathroom, floor, and facade — transforming ordinary spaces into lasting works of art.</p>
+      <p class="hero-sub">Established in 1999. “Quality that withstands the test of time”</p>
       <div class="hero-btns">
-        <a href="#portfolio" class="btn-primary-hero">View Our Work</a>
-        <a href="#" onclick="event.preventDefault();openPaymentModal()" class="btn-outline-hero">Order Materials</a>
+        <a href="https://www.facebook.com/ArtisanTileStonespecialistLLC" target="_blank" rel="noreferrer" class="btn-primary-hero">Visit Facebook Page</a>
+        <a href="tel:+17277411533" class="btn-outline-hero">Call Now</a>
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
-          <div class="n">18<span>+</span></div>
-          <div class="l">Years Experience</div>
+          <div class="n">224<span></span></div>
+          <div class="l">Followers</div>
         </div>
         <div class="hero-stat">
-          <div class="n">1,400<span>+</span></div>
-          <div class="l">Projects Done</div>
+          <div class="n">1<span></span></div>
+          <div class="l">Following</div>
         </div>
         <div class="hero-stat">
-          <div class="n">100<span>%</span></div>
-          <div class="l">Licensed & Insured</div>
+          <div class="n">1999<span></span></div>
+          <div class="l">Established</div>
         </div>
       </div>
     </div>
@@ -5416,7 +5618,7 @@
               alt="Our team">
             <div class="about-img-overlay">
               <h3>Handcrafted.<br>Every Time.</h3>
-              <p>Detroit Metro Area — Est. 2006</p>
+              <p>Saint Petersburg, FL — Est. 1999</p>
             </div>
           </div>
           <div class="about-float1">
@@ -5431,19 +5633,16 @@
         <div class="about-content rsl-right">
           <div class="tag" style="margin-bottom:16px">Our Story</div>
           <h2 class="sec-title">Built on craft.<br><em>Driven by pride.</em></h2>
-          <p class="about-body">Artisan Tile & Stone Specialists LLC was founded in 2006 by a single craftsman with a
-            simple belief: tile work is an art form — not a commodity. Over 18 years, we've grown into a team of
-            certified installers who share that same obsession with quality.</p>
-          <p class="about-body">We're based in the Detroit Metro Area and serve residential and commercial clients
-            across Michigan.</p>
+          <p class="about-body">Artisan Tile & Stone Specialists LLC has been serving the Saint Petersburg area since 1999, bringing a craft-first approach to tile, stone, and home improvement projects.</p>
+          <p class="about-body">We're based in Saint Petersburg, Florida, and proudly help homeowners and businesses create durable, beautiful spaces with long-term value.</p>
           <div class="about-features">
             <div class="about-feature">
               <div class="af-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg></div>
               <div class="af-text">
-                <h5>Michigan Licensed & Bonded</h5>
-                <p>Fully licensed for all residential and commercial work in Michigan.</p>
+                <h5>Saint Petersburg Specialists</h5>
+                <p>Trusted tile and stone craftsmanship for homes and commercial spaces across the local area.</p>
               </div>
             </div>
             <div class="about-feature">
@@ -5535,8 +5734,7 @@
         <div class="cta-left rsl-left">
           <div class="tag">Get In Touch</div>
           <h2 class="sec-title">Ready to transform<br>your <em>space?</em></h2>
-          <p>We offer free in-home consultations — no pressure, no obligation. Tell us your project, and we'll give you
-            a clear, detailed estimate within 48 hours.</p>
+          <p>Tell us about your project and we’ll help you plan a beautiful, long-lasting tile or stone installation for your home or business in the Saint Petersburg area.</p>
           <div class="contact-infos">
             <div class="contact-info-item">
               <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -5545,7 +5743,7 @@
                 </svg></div>
               <div>
                 <div class="ci-label">Call or Text</div>
-                <div class="ci-value">(313) 555-0000</div>
+                <div class="ci-value">(727) 741-1533</div>
               </div>
             </div>
             <div class="contact-info-item">
@@ -5556,7 +5754,7 @@
                 </svg></div>
               <div>
                 <div class="ci-label">Email Us</div>
-                <div class="ci-value">info@artisantile.com</div>
+                <div class="ci-value">artisantileandstone01@gmail.com</div>
               </div>
             </div>
             <div class="contact-info-item">
@@ -5567,7 +5765,7 @@
                 </svg></div>
               <div>
                 <div class="ci-label">Service Area</div>
-                <div class="ci-value">Detroit Metro Area & SE Michigan</div>
+                <div class="ci-value">Saint Petersburg, Florida</div>
               </div>
             </div>
             <div class="contact-info-item">
@@ -5579,8 +5777,8 @@
                   <line x1="3" y1="10" x2="21" y2="10" />
                 </svg></div>
               <div>
-                <div class="ci-label">Hours</div>
-                <div class="ci-value">Mon – Sat: 7:00 AM – 6:00 PM</div>
+                <div class="ci-label">Business Type</div>
+                <div class="ci-value">Home Improvement · Established in 1999</div>
               </div>
             </div>
           </div>
@@ -5631,18 +5829,17 @@
             <div class="logo-words"><span class="l1">Artisan Tile & Stone</span><span class="l2">Specialists LLC</span>
             </div>
           </div>
-          <p class="footer-desc">Michigan's trusted tile and natural stone specialists since 2006. Licensed, bonded,
-            insured — and passionate about craft.</p>
+          <p class="footer-desc">Quality that withstands the test of time. Artisan Tile & Stone Specialists LLC provides craftsmanship, installation, and natural stone work throughout Saint Petersburg, Florida.</p>
           <div class="footer-socials">
-            <a class="social-btn" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <a class="social-btn" href="https://www.facebook.com/ArtisanTileStonespecialistLLC" target="_blank" rel="noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
               </svg></a>
-            <a class="social-btn" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <a class="social-btn" href="mailto:artisantileandstone01@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="2" y="2" width="20" height="20" rx="5" />
                 <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
               </svg></a>
-            <a class="social-btn" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <a class="social-btn" href="tel:+17277411533" aria-label="Phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="10" />
                 <line x1="2" y1="12" x2="22" y2="12" />
                 <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
@@ -5690,9 +5887,8 @@
       </div>
     </div>
     <div class="container">
-      <div class="footer-bottom"><span>© 2025 Artisan Tile & Stone Specialists LLC. All rights reserved.</span>
-        <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a
-            href="#">Sitemap</a></div>
+      <div class="footer-bottom"><span>© 2025 Artisan Tile & Stone Specialists LLC. Saint Petersburg, Florida.</span>
+        <div class="footer-bottom-links"><a href="https://www.facebook.com/ArtisanTileStonespecialistLLC" target="_blank" rel="noreferrer">Facebook</a><a href="mailto:artisantileandstone01@gmail.com">Email</a><a href="tel:+17277411533">Call</a></div>
       </div>
     </div>
   </footer>
@@ -5703,15 +5899,27 @@
       setTimeout(() => document.getElementById('loader').classList.add('hide'), 2000);
     });
 
-    // ---- CUSTOM CURSOR ----
-    const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursor-ring');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
-    (function animateRing() { rx += (mx - rx) * .12; ry += (my - ry) * .12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animateRing); })();
-
     // ---- STICKY NAV ----
     window.addEventListener('scroll', () => document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20));
+
+    // ---- MOBILE NAV ----
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('navMenu');
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+        navToggle.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', navMenu.classList.contains('open'));
+      });
+
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('open');
+          navToggle.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
 
     // ---- SCROLL REVEAL ----
     const revealObs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }), { threshold: .07, rootMargin: '0px 0px -40px 0px' });
