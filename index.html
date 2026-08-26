@@ -4145,7 +4145,7 @@
         display: none;
         flex-direction: column;
         align-items: stretch;
-        background: rgba(255, 255, 255, .98);
+        background: var(--white);
         border: 1px solid var(--border);
         border-radius: 16px;
         box-shadow: 0 28px 60px rgba(30, 26, 22, .12);
@@ -4160,15 +4160,19 @@
         width: 100%
       }
 
+      .nav-menu>li .dropdown {
+        display: none
+      }
+
       .nav-menu>li>a {
         height: auto;
         padding: 14px 16px;
         border-radius: 10px
       }
 
-      .nav-menu>li:hover .dropdown,
-      .nav-menu>li:focus-within .dropdown {
+      .nav-menu>li:hover .dropdown {
         position: static;
+        display: block;
         opacity: 1;
         pointer-events: all;
         transform: none;
@@ -4178,6 +4182,19 @@
         border-top: 1px solid var(--border);
         margin-top: 8px;
         display: block
+      }
+
+      .nav-menu>li.open .dropdown {
+        position: static;
+        display: block;
+        opacity: 1;
+        pointer-events: all;
+        transform: none;
+        min-width: 0;
+        box-shadow: none;
+        border: none;
+        border-top: 1px solid var(--border);
+        margin-top: 8px
       }
 
       .dropdown {
@@ -5938,7 +5955,17 @@
       });
 
       navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', event => {
+          const parent = link.parentElement;
+          const hasDropdown = parent && parent.querySelector(':scope > .dropdown');
+          if (link.closest('.dropdown') || (hasDropdown && window.matchMedia('(max-width: 920px)').matches)) {
+            event.preventDefault();
+          }
+          if (hasDropdown && window.matchMedia('(max-width: 920px)').matches) {
+            parent.classList.toggle('open');
+            return;
+          }
+          if (link.closest('.dropdown')) return;
           navMenu.classList.remove('open');
           navToggle.classList.remove('active');
           navToggle.setAttribute('aria-expanded', 'false');
@@ -5975,7 +6002,6 @@
     galItems.forEach((item, i) => {
       const img = item.querySelector('img');
       galData.push({ src: img ? img.src : '', title: item.dataset.title || '', sub: item.dataset.sub || '' });
-      item.addEventListener('click', () => { currentIdx = i; openLb(i); });
     });
     function openLb(i) { lbImg.src = galData[i].src; document.getElementById('lbTitle').textContent = galData[i].title; document.getElementById('lbSub').textContent = galData[i].sub; lightbox.classList.add('open'); document.body.style.overflow = 'hidden'; }
     document.getElementById('lbClose').addEventListener('click', () => { lightbox.classList.remove('open'); document.body.style.overflow = ''; });
